@@ -1,0 +1,94 @@
+{
+    "Overview": {
+        "Title": "My Awesome Game",
+        "Description": "Embark on an epic adventure...",
+        "Genre": "Action"
+    },
+    "Developer": {
+        "Name": "XYZ Game Studios",
+        "Info": "XYZ Game Studios is a leading mobile game developer."
+    },
+    "Platform": {
+        "Platform(s)": [
+            "iOS",
+            "Android"
+        ]
+    },
+    "Media": {
+        "Trailer Video": "https://youtube.com/embed/12345",
+        "Splash": "url-of-uploaded-image",
+        "Social Media Links": {
+            "twitter": "https://twitter.com/xyzgame"
+        }
+    },
+    "In-App Purchases": [
+        {
+            "IAP Name": "Coin Pack",
+            "Description": "Get 1000 coins instantly!",
+            "Price": 4.99
+        },
+        {
+            "IAP Name": "Unlock All Levels",
+            "Description": "Unlock all levels in the game.",
+            "Price": 9.99
+        }
+    ],
+    "Screenshots": {
+        "Screenshots/Images": [
+            "https://example.com/screenshot1.png",
+            "https://example.com/screenshot2.png"
+        ],
+        "Image Captions": [
+            "Screenshot 1",
+            "Screenshot 2"
+        ]
+    },
+    "FAQ": {
+        "Questions": [
+            "How to play?",
+            "Is it free?"
+        ],
+        "Answers": [
+            "You can tap to jump",
+            "Yes"
+        ]
+    },
+    "Contact Info": {
+        "Email": "contact@xyzgamestudios.com",
+        "Website": "https://www.xyzgamestudios.com",
+        "Social Media Links": {
+            "twitter": "https://twitter.com/xyzgame"
+        }
+    },
+    "Download Links": {
+        "iOS": "https://itunes.apple.com/app/id123456789",
+        "Android": "https://play.google.com/store/apps/details?id=com.xyzgame"
+    },
+    "Privacy Policy/Terms of Service": {
+        "Privacy Policy": "https://www.xyzgamestudios.com/privacy-policy",
+        "Terms of Service": "https://www.xyzgamestudios.com/terms-of-service"
+    },
+    "Gameplay Videos/Tutorials": [
+        "https://youtu.be/12345",
+        "https://youtu.be/67890"
+    ],
+    "Press Kit/Media Resources": {
+        "Press Kit": "https://www.xyzgamestudios.com/press-kit"
+    },
+    "Cross-Promotion": [
+        "url-of-game-1",
+        "url-of-game-2"
+    ],
+    "Feedback/Survey Forms": {
+        "Feedback Form": "https://www.xyzgamestudios.com/feedback"
+    },
+    "Footer": {
+        "Copyright Information": "Copyright © 2023 XYZ Game Studios",
+        "Legal Links": {
+            "Privacy Policy": "https://www.xyzgamestudios.com/privacy-policy"
+        },
+        "Social Media Links": {
+            "twitter": "https://twitter.com/xyzgame"
+        }
+    }
+}
