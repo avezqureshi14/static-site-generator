@@ -29,22 +29,18 @@
         "description": "String",
         "price": "Number"
     },
-    "screenshots": {
-        "images": [
-            "String"
-        ],
-        "captions": [
-            "String"
-        ]
-    },
-    "faq": {
-        "questions": [
-            "String"
-        ],
-        "answers": [
-            "String"
-        ]
-    },
+    "screenshots": [
+        {
+            "images": "String",
+            "captions": "String"
+        }
+    ],
+    "faqs": [
+        {
+            "questions": "String",
+            "answers": "String"
+        }
+    ],
     "contact_info": {
         "email": "String",
         "website": "String",
