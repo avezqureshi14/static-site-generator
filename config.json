@@ -53,6 +53,11 @@
             "platform2": "String"
         }
     },
+    "download_links": {
+        "links": {
+            "platform1": "String"
+        }
+    },
     "privacy_policy_terms_of_service": {
         "privacy_policy": "String",
         "terms_of_service": "String"
