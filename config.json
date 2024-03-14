@@ -31,14 +31,14 @@
     },
     "screenshots": [
         {
-            "images": "String",
-            "captions": "String"
+            "image": "String",
+            "caption": "String"
         }
     ],
     "faqs": [
         {
-            "questions": "String",
-            "answers": "String"
+            "question": "String",
+            "answer": "String"
         }
     ],
     "contact_info": {
