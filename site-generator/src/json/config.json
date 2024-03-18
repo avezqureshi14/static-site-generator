@@ -1,0 +1,249 @@
+{
+    "overview": {
+        "title": {
+            "type": "text",
+            "label": "Title",
+            "placeholder": "Enter title"
+        },
+        "description": {
+            "type": "textarea",
+            "label": "Description",
+            "placeholder": "Enter description"
+        },
+        "genre": {
+            "type": "text",
+            "label": "Genre",
+            "placeholder": "Enter genre"
+        }
+    },
+    "developer": {
+        "name": {
+            "type": "text",
+            "label": "Name",
+            "placeholder": "Enter developer's name"
+        },
+        "details": {
+            "type": "textarea",
+            "label": "Details",
+            "placeholder": "Enter developer's details"
+        }
+    },
+    "platforms": [
+        {
+            "platforms": {
+                "type": "text",
+                "label": "Platforms",
+                "placeholder": "Enter platforms separated by comma"
+            },
+            "release_date": {
+                "type": "date",
+                "label": "Release Date",
+                "placeholder": "Select release date"
+            }
+        }
+    ],
+    "cover": {
+        "trailer_video": {
+            "type": "text",
+            "label": "Trailer Video",
+            "placeholder": "Enter trailer video URL"
+        },
+        "trailer_video_thumbnail": {
+            "type": "text",
+            "label": "Trailer Video Thumbnail",
+            "placeholder": "Enter trailer video thumbnail URL"
+        }
+    },
+    "social_media_links": [
+        {
+            "platform1": {
+                "type": "text",
+                "label": "Social Media Link 1",
+                "placeholder": "Enter social media link 1"
+            },
+            "platform2": {
+                "type": "text",
+                "label": "Social Media Link 2",
+                "placeholder": "Enter social media link 2"
+            }
+        }
+    ],
+    "in_app_purchases": {
+        "iap_name": {
+            "type": "text",
+            "label": "In-App Purchase Name",
+            "placeholder": "Enter in-app purchase name"
+        },
+        "description": {
+            "type": "textarea",
+            "label": "Description",
+            "placeholder": "Enter description"
+        },
+        "price": {
+            "type": "number",
+            "label": "Price",
+            "placeholder": "Enter price"
+        }
+    },
+    "screenshots": [
+        {
+            "image": {
+                "type": "text",
+                "label": "Image",
+                "placeholder": "Enter screenshot image URL"
+            },
+            "caption": {
+                "type": "text",
+                "label": "Caption",
+                "placeholder": "Enter caption"
+            }
+        }
+    ],
+    "faqs": [
+        {
+            "question": {
+                "type": "text",
+                "label": "Question",
+                "placeholder": "Enter question"
+            },
+            "answer": {
+                "type": "text",
+                "label": "Answer",
+                "placeholder": "Enter answer"
+            }
+        }
+    ],
+    "contact_info": {
+        "email": {
+            "type": "email",
+            "label": "Email",
+            "placeholder": "Enter email"
+        },
+        "website": {
+            "type": "url",
+            "label": "Website",
+            "placeholder": "Enter website URL"
+        },
+        "social_media_links": [
+            {
+                "platform1": {
+                    "type": "text",
+                    "label": "Social Media Link 1",
+                    "placeholder": "Enter social media link 1"
+                },
+                "platform2": {
+                    "type": "text",
+                    "label": "Social Media Link 2",
+                    "placeholder": "Enter social media link 2"
+                }
+            }
+        ]
+    },
+    "download_links": {
+        "links": {
+            "platform1": {
+                "type": "text",
+                "label": "Download Link 1",
+                "placeholder": "Enter download link 1"
+            },
+            "platform2": {
+                "type": "text",
+                "label": "Download Link 2",
+                "placeholder": "Enter download link 2"
+            }
+        }
+    },
+    "privacy_policy_terms_of_service": {
+        "privacy_policy": {
+            "type": "text",
+            "label": "Privacy Policy",
+            "placeholder": "Enter privacy policy"
+        },
+        "terms_of_service": {
+            "type": "text",
+            "label": "Terms of Service",
+            "placeholder": "Enter terms of service"
+        }
+    },
+    "gameplay_videos_tutorials": {
+        "videos": [
+            {
+                "type": "text",
+                "label": "Video",
+                "placeholder": "Enter gameplay video/tutorial URL"
+            }
+        ]
+    },
+    "press_kit_media_resources": {
+        "resources": {
+            "resource1": {
+                "type": "text",
+                "label": "Resource 1",
+                "placeholder": "Enter resource 1 URL"
+            },
+            "resource2": {
+                "type": "text",
+                "label": "Resource 2",
+                "placeholder": "Enter resource 2 URL"
+            }
+        }
+    },
+    "cross_promotion": {
+        "links": [
+            {
+                "type": "text",
+                "label": "Cross Promotion Link",
+                "placeholder": "Enter cross promotion link URL"
+            }
+        ]
+    },
+    "feedback_survey_forms": {
+        "forms": {
+            "form1": {
+                "type": "text",
+                "label": "Form 1",
+                "placeholder": "Enter feedback/survey form 1 URL"
+            },
+            "form2": {
+                "type": "text",
+                "label": "Form 2",
+                "placeholder": "Enter feedback/survey form 2 URL"
+            }
+        }
+    },
+    "footer": {
+        "copyright_info": {
+            "type": "text",
+            "label": "Copyright Info",
+            "placeholder": "Enter copyright information"
+        },
+        "legal_links": [
+            {
+                "document1": {
+                    "type": "text",
+                    "label": "Document 1",
+                    "placeholder": "Enter legal document 1 URL"
+                },
+                "document2": {
+                    "type": "text",
+                    "label": "Document 2",
+                    "placeholder": "Enter legal document 2 URL"
+                }
+            }
+        ],
+        "social_media_links": [
+            {
+                "platform1": {
+                    "type": "text",
+                    "label": "Social Media Link 1",
+                    "placeholder": "Enter social media link 1"
+                },
+                "platform2": {
+                    "type": "text",
+                    "label": "Social Media Link 2",
+                    "placeholder": "Enter social media link 2"
+                }
+            }
+        ]
+    }
+}

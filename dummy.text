@@ -1,0 +1,71 @@
+"use client";
+
+import { useState } from 'react';
+import formData from "../json/config.json"; // assuming your JSON file is named config.json
+
+export default function Home() {
+  const [step, setStep] = useState(0);
+  const steps = Object.keys(formData);
+
+  const handleNext = () => {
+    setStep(step + 1);
+  };
+
+  const handlePrevious = () => {
+    setStep(step - 1);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Handle form submission here
+  };
+
+  return (
+    <div className="max-w-lg mx-auto">
+      <ol className="flex items-center w-full mb-4 sm:mb-5">
+        {steps.map((stepTitle, index) => (
+          <li key={index} className={`flex w-full items-center ${index === step ? 'text-blue-600 dark:text-blue-500 after:content-[""] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-800' : 'after:content-[""] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700'}`}>
+            <div className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+              <svg className="w-4 h-4 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+                <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM2 12V6h16v6H2Z" />
+                <path d="M6 8H4a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2Zm8 0H9a1 1 0 0 0 0 2h5a1 1 0 1 0 0-2Z" />
+              </svg>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <form className="mt-4" onSubmit={handleFormSubmit}>
+        <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">{steps[step]}</h3>
+        <div className="grid gap-4">
+          {Object.keys(formData[steps[step]]).map((fieldName, index) => {
+            const field = formData[steps[step]][fieldName];
+            return (
+              <div key={index}>
+                <label htmlFor={fieldName} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{field.label}</label>
+                <input
+                  type={field.type}
+                  id={fieldName}
+                  name={fieldName}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder={field.placeholder}
+                  required
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex justify-between mt-6">
+          {step > 0 && (
+            <button type="button" onClick={handlePrevious} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Previous</button>
+          )}
+          {step < steps.length - 1 && (
+            <button type="button" onClick={handleNext} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Next</button>
+          )}
+          {step === steps.length - 1 && (
+            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+          )}
+        </div>
+      </form>
+    </div>
+  );
+}
