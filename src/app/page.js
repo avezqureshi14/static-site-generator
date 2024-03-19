@@ -20,9 +20,9 @@ import Footer from './components/Footer';
 import Cover from './components/Cover';
 import "./index.css"
 
-export default function DynamicForm() {
+export default function FormFeild() {
   const [step, setStep] = useState(0);
-
+  // const step = 6;
   const handleNext = () => {
     setStep(step + 1);
   };

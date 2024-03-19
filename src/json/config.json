@@ -192,23 +192,26 @@
         "links": [
             {
                 "type": "text",
-                "label": "Cross Promotion Link",
+                "label": "Cross Promotion Link 1",
+                "placeholder": "Enter cross promotion link URL"
+            },
+            {
+                "type": "text",
+                "label": "Cross Promotion Link 2",
                 "placeholder": "Enter cross promotion link URL"
             }
         ]
     },
     "feedback_survey_forms": {
-        "forms": {
-            "form1": {
-                "type": "text",
-                "label": "Form 1",
-                "placeholder": "Enter feedback/survey form 1 URL"
-            },
-            "form2": {
-                "type": "text",
-                "label": "Form 2",
-                "placeholder": "Enter feedback/survey form 2 URL"
-            }
+        "form1": {
+            "type": "text",
+            "label": "Form 1",
+            "placeholder": "Enter feedback/survey form 1 URL"
+        },
+        "form2": {
+            "type": "text",
+            "label": "Form 2",
+            "placeholder": "Enter feedback/survey form 2 URL"
         }
     },
     "footer": {

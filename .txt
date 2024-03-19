@@ -1,0 +1,708 @@
+actually i have displayed this using different components of next js in a form  but i want it to be dynamic rather thatn creating separate forms
+
+
+
+
+"use client";
+import { useState } from 'react';
+import Overview from './components/Overview';
+import formData from "../json/config.json";
+import { FLIGHT_PARAMETERS } from 'next/dist/client/components/app-router-headers';
+import Developer from './components/Developer';
+import Platform from './components/Platforms';
+import SocialMediaLinks from './components/SocialMediaLinks';
+import InAppPurchases from './components/InAppPurchases';
+import Screenshots from './components/Screenshots';
+import FAQs from './components/FAQs';
+import ContactInfo from './components/ContactInfo';
+import DownloadLinks from './components/DownloadLinks';
+import PrivacyPolicyTermsOfService from './components/PrivacyPolicyTermsOfService';
+import GameplayVideosTutorials from './components/GameplayVideosTutorials';
+import PressKitMediaResources from './components/PressKitMediaResources';
+import CrossPromotion from './components/CrossPromotion';
+import FeedbackSurveyForms from './components/FeedbackSurveyForms';
+import Footer from './components/Footer';
+import Cover from './components/Cover';
+import "./index.css"
+
+export default function FormFeild() {
+  const [step, setStep] = useState(0);
+
+  const handleNext = () => {
+    setStep(step + 1);
+  };
+
+  const handlePrevious = () => {
+    setStep(step - 1);
+  };
+  const overviewFields = formData.overview;
+  const developerFields = formData.developer;
+  const platforms = formData.platforms;
+  const coverFields = formData.cover;
+  const socialMediaLinks = formData.social_media_links;
+  const inAppPurchases = formData.in_app_purchases;
+  const screenshots = formData.screenshots;
+  const faqs = formData.faqs;
+  const contactInfo = formData.contact_info;
+  const downloadLinks = formData.download_links;
+  const privacyPolicyTermsOfService = formData.privacy_policy_terms_of_service;
+  const gameplayVideosTutorials = formData.gameplay_videos_tutorials;
+  const pressKitMediaResources = formData.press_kit_media_resources;
+  const crossPromotion = formData.cross_promotion;
+  const feedbackSurveyForms = formData.feedback_survey_forms;
+  const footer = formData.footer;
+
+
+  const steps = [
+    {
+      title: 'Overview',
+      component: <Overview overviewFields={overviewFields} />,
+    },
+    {
+      title: 'Developer Details',
+      component: <Developer developerFields={developerFields} />,
+    },
+    {
+      title: 'Platform Details',
+      component: <Platform platforms={platforms} />,
+    },
+    {
+      title: 'Cover',
+      component: <Cover coverFields={coverFields} />,
+    },
+    {
+      title: 'Social Media Links',
+      component: <SocialMediaLinks socialMediaLinks={socialMediaLinks} />,
+    },
+    {
+      title: 'In-App Purchases',
+      component: <InAppPurchases inAppPurchases={inAppPurchases} />,
+    },
+    {
+      title: 'Screenshots',
+      component: <Screenshots screenshots={screenshots} />,
+    },
+    {
+      title: 'FAQs',
+      component: <FAQs faqs={faqs} />,
+    },
+    {
+      title: 'Contact Info',
+      component: <ContactInfo contactInfo={contactInfo} />,
+    },
+    {
+      title: 'Download Links',
+      component: <DownloadLinks downloadLinks={downloadLinks} />,
+    },
+    {
+      title: 'Privacy Policy & Terms of Service',
+      component: <PrivacyPolicyTermsOfService privacyPolicyTermsOfService={privacyPolicyTermsOfService} />,
+    },
+    {
+      title: 'Gameplay Videos & Tutorials',
+      component: <GameplayVideosTutorials gameplayVideosTutorials={gameplayVideosTutorials} />,
+    },
+    {
+      title: 'Press Kit & Media Resources',
+      component: <PressKitMediaResources pressKitMediaResources={pressKitMediaResources} />,
+    },
+    {
+      title: 'Cross Promotion',
+      component: <CrossPromotion crossPromotion={crossPromotion} />,
+    },
+    {
+      title: 'Feedback & Survey Forms',
+      component: <FeedbackSurveyForms feedbackSurveyForms={feedbackSurveyForms} />,
+    },
+    {
+      title: 'Footer',
+      component: <Footer footer={footer} />,
+    },
+  ];
+
+
+  return (
+    <div className="flex">
+      <div className="hidden lg:block lg:w-64 lg:flex-shrink-0 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800" style={{ height: "100vh" }} >
+        <div className="px-4 py-6">
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Steps</h2>
+          <ol className="space-y-2">
+            {steps.map((item, index) => (
+              <li key={index} className={`flex items-center space-x-3 ${index === step ? 'font-semibold text-blue-600 dark:text-blue-500' : 'text-gray-600 dark:text-gray-400'}`} style={{ listStyle: "none" }} >
+                <div className={`w-2 h-2 rounded-full ${index === step ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-400 dark:bg-gray-600'}`}></div>
+                <span>{item.title}</span>
+                <span className="text-sm">{steps[index].label}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+      <div className="mx-auto w-full max-h-screen" style={{ maxWidth: "100vh !important", padding: "2rem 3rem" }}>
+
+        {steps[step].component}
+        <div className="flex justify-between mt-6">
+          {step > 0 && (
+            <button type="button" onClick={handlePrevious} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Previous</button>
+          )}
+          {step < steps.length - 1 && (
+            <button type="button" onClick={handleNext} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Next</button>
+          )}
+          {step === steps.length - 1 && (
+            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
+
+}
+
+
+
+import React from 'react';
+
+const ContactInfo = ({ contactInfo }) => {
+    const { email, website, social_media_links } = contactInfo;
+
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Contact Information</h3>
+            <div className="grid gap-4">
+                <div>
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{email.label}</label>
+                    <input
+                        type={email.type}
+                        id="email"
+                        name="email"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={email.placeholder}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{website.label}</label>
+                    <input
+                        type={website.type}
+                        id="website"
+                        name="website"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={website.placeholder}
+                        required
+                    />
+                </div>
+                {social_media_links.map((platforms, index) => (
+                    <div key={index}>
+                        {Object.entries(platforms).map(([platform, fieldConfig]) => (
+                            <div key={platform}>
+                                <label htmlFor={`${platform}_link`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                                <input
+                                    type={fieldConfig.type}
+                                    id={`${platform}_link`}
+                                    name={`${platform}_link`}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder={fieldConfig.placeholder}
+                                    required
+                                />
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default ContactInfo;
+
+
+import React from 'react';
+
+const Cover = ({ coverFields }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Cover</h3>
+            <div className="grid gap-4">
+                <div>
+                    <label htmlFor="trailer_video" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{coverFields.trailer_video.label}</label>
+                    <input
+                        type={coverFields.trailer_video.type}
+                        id="trailer_video"
+                        name="trailer_video"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={coverFields.trailer_video.placeholder}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="trailer_video_thumbnail" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{coverFields.trailer_video_thumbnail.label}</label>
+                    <input
+                        type={coverFields.trailer_video_thumbnail.type}
+                        id="trailer_video_thumbnail"
+                        name="trailer_video_thumbnail"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={coverFields.trailer_video_thumbnail.placeholder}
+                        required
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Cover;
+import React from 'react';
+
+const CrossPromotion = ({ crossPromotion }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Cross Promotion</h3>
+            <div className="grid gap-4">
+                {crossPromotion.links.map((link, index) => (
+                    <div key={index}>
+                        <label htmlFor={`cross_promotion_link_${index}`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{link.label}</label>
+                        <input
+                            type={link.type}
+                            id={`cross_promotion_link_${index}`}
+                            name={`cross_promotion_link_${index}`}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder={link.placeholder}
+                            required
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default CrossPromotion;
+
+import React from 'react';
+
+const Developer = ({ developerFields }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Step 2: Developer</h3>
+            <div className="grid gap-4">
+                {Object.entries(developerFields).map(([fieldName, fieldConfig]) => (
+                    <div key={fieldName}>
+                        <label htmlFor={fieldName} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                        {fieldConfig.type === "text" ?
+                            <input
+                                type={fieldConfig.type}
+                                id={fieldName}
+                                name={fieldName}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder={fieldConfig.placeholder}
+                                required
+                            />
+                            :
+                            <textarea
+                                id={fieldName}
+                                name={fieldName}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder={fieldConfig.placeholder}
+                                required
+                            ></textarea>
+                        }
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default Developer;
+import React from 'react';
+
+const DownloadLinks = ({ downloadLinks }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Download Links</h3>
+            <div className="grid gap-4">
+                {Object.entries(downloadLinks.links).map(([platform, fieldConfig], index) => (
+                    <div key={index}>
+                        <label htmlFor={`${platform}_download`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                        <input
+                            type={fieldConfig.type}
+                            id={`${platform}_download`}
+                            name={`${platform}_download`}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder={fieldConfig.placeholder}
+                            required
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default DownloadLinks;
+import React from 'react';
+
+const FAQs = ({ faqs }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">FAQs</h3>
+            {faqs.map((faq, index) => (
+                <div key={index}>
+                    <label htmlFor={`question_${index}`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{faq.question.label}</label>
+                    <input
+                        type={faq.question.type}
+                        id={`question_${index}`}
+                        name={`question_${index}`}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={faq.question.placeholder}
+                        required
+                    />
+                    <label htmlFor={`answer_${index}`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{faq.answer.label}</label>
+                    <input
+                        type={faq.answer.type}
+                        id={`answer_${index}`}
+                        name={`answer_${index}`}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={faq.answer.placeholder}
+                        required
+                    />
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default FAQs;
+import React from 'react';
+
+const FeedbackSurveyForms = ({ feedbackSurveyForms }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Feedback & Survey Forms</h3>
+            <div className="grid gap-4">
+                {Object.entries(feedbackSurveyForms.forms).map(([key, fieldConfig], index) => (
+                    <div key={index}>
+                        <label htmlFor={key} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                        <input
+                            type={fieldConfig.type}
+                            id={key}
+                            name={key}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder={fieldConfig.placeholder}
+                            required
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default FeedbackSurveyForms;
+import React from 'react';
+
+const Footer = ({ footer }) => {
+    const { copyright_info, legal_links, social_media_links } = footer;
+
+    return (
+        <div>
+            <h2 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Footer</h2>
+            <div className="grid gap-4">
+                <div>
+                    <label htmlFor="copyright_info" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{copyright_info.label}</label>
+                    <input
+                        type={copyright_info.type}
+                        id="copyright_info"
+                        name="copyright_info"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={copyright_info.placeholder}
+                        required
+                    />
+                </div>
+                {legal_links.map((documents, index) => (
+                    <div key={index}>
+                        {Object.entries(documents).map(([document, fieldConfig]) => (
+                            <div key={document}>
+                                <label htmlFor={`${document}_url`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                                <input
+                                    type={fieldConfig.type}
+                                    id={`${document}_url`}
+                                    name={`${document}_url`}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder={fieldConfig.placeholder}
+                                    required
+                                />
+                            </div>
+                        ))}
+                    </div>
+                ))}
+                {social_media_links.map((platforms, index) => (
+                    <div key={index}>
+                        {Object.entries(platforms).map(([platform, fieldConfig]) => (
+                            <div key={platform}>
+                                <label htmlFor={`${platform}_link`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                                <input
+                                    type={fieldConfig.type}
+                                    id={`${platform}_link`}
+                                    name={`${platform}_link`}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder={fieldConfig.placeholder}
+                                    required
+                                />
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default Footer;
+import React from 'react';
+
+const GameplayVideosTutorials = ({ gameplayVideosTutorials }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Gameplay Videos & Tutorials</h3>
+            <div className="grid gap-4">
+                {gameplayVideosTutorials.videos.map((video, index) => (
+                    <div key={index}>
+                        <label htmlFor={`video_${index}`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{video.label}</label>
+                        <input
+                            type={video.type}
+                            id={`video_${index}`}
+                            name={`video_${index}`}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder={video.placeholder}
+                            required
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default GameplayVideosTutorials;
+import React from 'react';
+
+const InAppPurchases = ({ inAppPurchases }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">In-App Purchases</h3>
+            <div className="grid gap-4">
+                {Object.entries(inAppPurchases).map(([key, fieldConfig], index) => (
+                    <div key={index}>
+                        <label htmlFor={key} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                        {fieldConfig.type === "text" ?
+                            <input
+                                type={fieldConfig.type}
+                                id={fieldConfig.title}
+                                name={fieldConfig.title}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder={fieldConfig.placeholder}
+                                required
+                            />
+                            :
+                            <textarea
+                                id={fieldConfig.title}
+                                name={fieldConfig.title}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder={fieldConfig.placeholder}
+                                required
+                            ></textarea>
+                        }
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default InAppPurchases;
+import React from 'react';
+
+const Overview = ({ overviewFields }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Step 1: Overview</h3>
+            <div className="grid gap-4">
+                {Object.entries(overviewFields).map(([fieldName, fieldConfig]) => (
+                    <div key={fieldName}>
+                        <label htmlFor={fieldName} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                        {fieldConfig.type === "text" ?
+                            <input
+                                type={fieldConfig.type}
+                                id={fieldName}
+                                name={fieldName}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder={fieldConfig.placeholder}
+                                required
+                            />
+                            :
+                            <textarea
+                                id={fieldName}
+                                name={fieldName}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder={fieldConfig.placeholder}
+                                required
+                            ></textarea>
+                        }
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default Overview;
+import React from 'react';
+
+const Platform = ({ platforms }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Step 3: Platform</h3>
+            {platforms.map((platform, index) => (
+                <div key={index}>
+                    <label htmlFor={`platforms_${index}`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{platform.platforms.label}</label>
+                    <input
+                        type={platform.platforms.type}
+                        id={`platforms_${index}`}
+                        name={`platforms_${index}`}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={platform.platforms.placeholder}
+                        required
+                    />
+                    <label htmlFor={`release_date_${index}`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{platform.release_date.label}</label>
+                    <input
+                        type={platform.release_date.type}
+                        id={`release_date_${index}`}
+                        name={`release_date_${index}`}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={platform.release_date.placeholder}
+                        required
+                    />
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default Platform;
+import React from 'react';
+
+const PressKitMediaResources = ({ pressKitMediaResources }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Press Kit & Media Resources</h3>
+            <div className="grid gap-4">
+                {Object.entries(pressKitMediaResources.resources).map(([key, fieldConfig], index) => (
+                    <div key={index}>
+                        <label htmlFor={key} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                        <input
+                            type={fieldConfig.type}
+                            id={key}
+                            name={key}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder={fieldConfig.placeholder}
+                            required
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default PressKitMediaResources;
+import React from 'react';
+
+const PrivacyPolicyTermsOfService = ({ privacyPolicyTermsOfService }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Privacy Policy & Terms of Service</h3>
+            <div className="grid gap-4">
+                {Object.entries(privacyPolicyTermsOfService).map(([key, fieldConfig], index) => (
+                    <div key={index}>
+                        <label htmlFor={key} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                        <input
+                            type={fieldConfig.type}
+                            id={key}
+                            name={key}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder={fieldConfig.placeholder}
+                            required
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default PrivacyPolicyTermsOfService;
+import React from 'react';
+
+const Screenshots = ({ screenshots }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Screenshots</h3>
+            {screenshots.map((screenshot, index) => (
+                <div key={index}>
+                    <label htmlFor={`screenshot_${index}`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{screenshot.image.label}</label>
+                    <input
+                        type={screenshot.image.type}
+                        id={`screenshot_${index}`}
+                        name={`screenshot_${index}`}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={screenshot.image.placeholder}
+                        required
+                    />
+                    <label htmlFor={`caption_${index}`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{screenshot.caption.label}</label>
+                    <input
+                        type={screenshot.caption.type}
+                        id={`caption_${index}`}
+                        name={`caption_${index}`}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder={screenshot.caption.placeholder}
+                        required
+                    />
+
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default Screenshots;
+import React from 'react';
+
+const SocialMediaLinks = ({ socialMediaLinks }) => {
+    return (
+        <div>
+            <h3 className="mb-4 text-lg font-medium leading-none text-gray-900 dark:text-white">Social Media Links</h3>
+            <div className="grid gap-4">
+                {socialMediaLinks.map((platforms, index) => (
+                    <div key={index}>
+                        {Object.entries(platforms).map(([platform, fieldConfig]) => (
+                            <div key={platform}>
+                                <label htmlFor={`${platform}_link`} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{fieldConfig.label}</label>
+                                <input
+                                    type={fieldConfig.type}
+                                    id={`${platform}_link`}
+                                    name={`${platform}_link`}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder={fieldConfig.placeholder}
+                                    required
+                                />
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default SocialMediaLinks;
