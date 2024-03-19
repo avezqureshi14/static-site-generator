@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FormFeild = ({ fields }) => {
+const FormField = ({ fields }) => {
     return (
         <div>
             {fields.map((fieldGroup, index) => (
@@ -37,4 +37,4 @@ const FormFeild = ({ fields }) => {
     );
 };
 
-export default FormFeild;
+export default FormField;

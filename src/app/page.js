@@ -1,26 +1,11 @@
 "use client";
 import { useState } from 'react';
-import Overview from './components/Overview';
 import formData from "../json/config.json";
-import { FLIGHT_PARAMETERS } from 'next/dist/client/components/app-router-headers';
-import Developer from './components/Developer';
-import Platform from './components/Platforms';
-import SocialMediaLinks from './components/SocialMediaLinks';
-import InAppPurchases from './components/InAppPurchases';
-import Screenshots from './components/Screenshots';
-import FAQs from './components/FAQs';
-import ContactInfo from './components/ContactInfo';
-import DownloadLinks from './components/DownloadLinks';
-import PrivacyPolicyTermsOfService from './components/PrivacyPolicyTermsOfService';
-import GameplayVideosTutorials from './components/GameplayVideosTutorials';
-import PressKitMediaResources from './components/PressKitMediaResources';
-import CrossPromotion from './components/CrossPromotion';
-import FeedbackSurveyForms from './components/FeedbackSurveyForms';
-import Footer from './components/Footer';
-import Cover from './components/Cover';
+import * as Section from '../app/components/common/Section';
 import "./index.css"
+import Footer from './components/common/Footer';
 
-export default function FormFeild() {
+export default function FormField() {
   const [step, setStep] = useState(0);
   // const step = 6;
   const handleNext = () => {
@@ -51,63 +36,63 @@ export default function FormFeild() {
   const steps = [
     {
       title: 'Overview',
-      component: <Overview overviewFields={overviewFields} />,
+      component: <Section.Overview overviewFields={overviewFields} />,
     },
     {
       title: 'Developer Details',
-      component: <Developer developerFields={developerFields} />,
+      component: <Section.Developer developerFields={developerFields} />,
     },
     {
       title: 'Platform Details',
-      component: <Platform platforms={platforms} />,
+      component: <Section.Platform platforms={platforms} />,
     },
     {
       title: 'Cover',
-      component: <Cover coverFields={coverFields} />,
+      component: <Section.Cover coverFields={coverFields} />,
     },
     {
       title: 'Social Media Links',
-      component: <SocialMediaLinks socialMediaLinks={socialMediaLinks} />,
+      component: <Section.SocialMediaLinks socialMediaLinks={socialMediaLinks} />,
     },
     {
       title: 'In-App Purchases',
-      component: <InAppPurchases inAppPurchases={inAppPurchases} />,
+      component: <Section.InAppPurchases inAppPurchases={inAppPurchases} />,
     },
     {
       title: 'Screenshots',
-      component: <Screenshots screenshots={screenshots} />,
+      component: <Section.Screenshots screenshots={screenshots} />,
     },
     {
       title: 'FAQs',
-      component: <FAQs faqs={faqs} />,
+      component: <Section.FAQs faqs={faqs} />,
     },
     {
       title: 'Contact Info',
-      component: <ContactInfo contactInfo={contactInfo} />,
+      component: <Section.ContactInfo contactInfo={contactInfo} />,
     },
     {
       title: 'Download Links',
-      component: <DownloadLinks downloadLinks={downloadLinks} />,
+      component: <Section.DownloadLinks downloadLinks={downloadLinks} />,
     },
     {
       title: 'Privacy Policy & Terms of Service',
-      component: <PrivacyPolicyTermsOfService privacyPolicyTermsOfService={privacyPolicyTermsOfService} />,
+      component: <Section.PrivacyPolicyTermsOfService privacyPolicyTermsOfService={privacyPolicyTermsOfService} />,
     },
     {
       title: 'Gameplay Videos & Tutorials',
-      component: <GameplayVideosTutorials gameplayVideosTutorials={gameplayVideosTutorials} />,
+      component: <Section.GameplayVideosTutorials gameplayVideosTutorials={gameplayVideosTutorials} />,
     },
     {
       title: 'Press Kit & Media Resources',
-      component: <PressKitMediaResources pressKitMediaResources={pressKitMediaResources} />,
+      component: <Section.PressKitMediaResources pressKitMediaResources={pressKitMediaResources} />,
     },
     {
       title: 'Cross Promotion',
-      component: <CrossPromotion crossPromotion={crossPromotion} />,
+      component: <Section.CrossPromotion crossPromotion={crossPromotion} />,
     },
     {
       title: 'Feedback & Survey Forms',
-      component: <FeedbackSurveyForms feedbackSurveyForms={feedbackSurveyForms} />,
+      component: <Section.FeedbackSurveyForms feedbackSurveyForms={feedbackSurveyForms} />,
     },
     {
       title: 'Footer',

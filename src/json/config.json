@@ -30,10 +30,10 @@
     },
     "platforms": [
         {
-            "platforms": {
+            "platform": {
                 "type": "text",
-                "label": "Platforms",
-                "placeholder": "Enter platforms separated by comma"
+                "label": "Platform",
+                "placeholder": "Enter platform name"
             },
             "release_date": {
                 "type": "date",
@@ -123,21 +123,7 @@
             "type": "url",
             "label": "Website",
             "placeholder": "Enter website URL"
-        },
-        "social_media_links": [
-            {
-                "platform1": {
-                    "type": "text",
-                    "label": "Social Media Link 1",
-                    "placeholder": "Enter social media link 1"
-                },
-                "platform2": {
-                    "type": "text",
-                    "label": "Social Media Link 2",
-                    "placeholder": "Enter social media link 2"
-                }
-            }
-        ]
+        }
     },
     "download_links": {
         "links": {
@@ -165,15 +151,15 @@
             "placeholder": "Enter terms of service"
         }
     },
-    "gameplay_videos_tutorials": {
-        "videos": [
-            {
+    "gameplay_videos_tutorials": [
+        {
+            "videos": {
                 "type": "text",
                 "label": "Video",
                 "placeholder": "Enter gameplay video/tutorial URL"
             }
-        ]
-    },
+        }
+    ],
     "press_kit_media_resources": {
         "resources": {
             "resource1": {
