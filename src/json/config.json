@@ -174,20 +174,20 @@
             }
         }
     },
-    "cross_promotion": {
-        "links": [
-            {
+    "cross_promotion": [
+        {
+            "link1": {
                 "type": "text",
                 "label": "Cross Promotion Link 1",
                 "placeholder": "Enter cross promotion link URL"
             },
-            {
+            "link2": {
                 "type": "text",
                 "label": "Cross Promotion Link 2",
                 "placeholder": "Enter cross promotion link URL"
             }
-        ]
-    },
+        }
+    ],
     "feedback_survey_forms": {
         "form1": {
             "type": "text",

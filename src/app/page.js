@@ -7,7 +7,7 @@ import Footer from './components/common/Footer';
 
 export default function FormField() {
   const [step, setStep] = useState(0);
-  // const step = 6;
+  // const step = 15;
   const handleNext = () => {
     setStep(step + 1);
   };

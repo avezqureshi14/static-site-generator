@@ -19,8 +19,6 @@ const Footer = ({ footer }) => {
                         required
                     />
                 </div>
-                <ArrayField fields={legal_links} />
-                <ArrayField fields={social_media_links} />
             </div>
         </div>
     );
