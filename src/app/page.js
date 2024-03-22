@@ -5,8 +5,9 @@ import * as Section from '../app/components/common/Section';
 import "./index.css"
 import Footer from './components/common/Footer';
 
-export default function FormField() {
+export default function Home() {
   const [step, setStep] = useState(0);
+  const [siteData, setSiteData] = useState({})
   // const step = 15;
   const handleNext = () => {
     setStep(step + 1);
@@ -14,6 +15,30 @@ export default function FormField() {
 
   const handlePrevious = () => {
     setStep(step - 1);
+  };
+
+  const handleUpdateFormData = (section, fieldName, value) => {
+    // Update the form data state
+    setSiteData(prevState => ({
+      ...prevState,
+      [section]: {
+        ...prevState[section],
+        [fieldName]: value
+      }
+    }));
+  };
+
+  const handleSubmit = () => {
+    console.log(siteData);
+    const jsonData = JSON.stringify(siteData);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'siteData.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
   const overviewFields = formData.overview;
   const developerFields = formData.developer;
@@ -31,74 +56,70 @@ export default function FormField() {
   const crossPromotion = formData.cross_promotion;
   const feedbackSurveyForms = formData.feedback_survey_forms;
   const footer = formData.footer;
-
-
   const steps = [
     {
       title: 'Overview',
-      component: <Section.Overview overviewFields={overviewFields} />,
+      component: <Section.Overview overviewFields={overviewFields} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Developer Details',
-      component: <Section.Developer developerFields={developerFields} />,
+      component: <Section.Developer developerFields={developerFields} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Platform Details',
-      component: <Section.Platform platforms={platforms} />,
+      component: <Section.Platform platforms={platforms} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Cover',
-      component: <Section.Cover coverFields={coverFields} />,
+      component: <Section.Cover coverFields={coverFields} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Social Media Links',
-      component: <Section.SocialMediaLinks socialMediaLinks={socialMediaLinks} />,
+      component: <Section.SocialMediaLinks socialMediaLinks={socialMediaLinks} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'In-App Purchases',
-      component: <Section.InAppPurchases inAppPurchases={inAppPurchases} />,
+      component: <Section.InAppPurchases inAppPurchases={inAppPurchases} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Screenshots',
-      component: <Section.Screenshots screenshots={screenshots} />,
+      component: <Section.Screenshots screenshots={screenshots} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'FAQs',
-      component: <Section.FAQs faqs={faqs} />,
+      component: <Section.FAQs faqs={faqs} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Contact Info',
-      component: <Section.ContactInfo contactInfo={contactInfo} />,
+      component: <Section.ContactInfo contactInfo={contactInfo} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Download Links',
-      component: <Section.DownloadLinks downloadLinks={downloadLinks} />,
+      component: <Section.DownloadLinks downloadLinks={downloadLinks} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Privacy Policy & Terms of Service',
-      component: <Section.PrivacyPolicyTermsOfService privacyPolicyTermsOfService={privacyPolicyTermsOfService} />,
+      component: <Section.PrivacyPolicyTermsOfService privacyPolicyTermsOfService={privacyPolicyTermsOfService} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Gameplay Videos & Tutorials',
-      component: <Section.GameplayVideosTutorials gameplayVideosTutorials={gameplayVideosTutorials} />,
+      component: <Section.GameplayVideosTutorials gameplayVideosTutorials={gameplayVideosTutorials} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Press Kit & Media Resources',
-      component: <Section.PressKitMediaResources pressKitMediaResources={pressKitMediaResources} />,
+      component: <Section.PressKitMediaResources pressKitMediaResources={pressKitMediaResources} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Cross Promotion',
-      component: <Section.CrossPromotion crossPromotion={crossPromotion} />,
+      component: <Section.CrossPromotion crossPromotion={crossPromotion} updateFormdata={handleUpdateFormData} />,
     },
     {
       title: 'Feedback & Survey Forms',
-      component: <Section.FeedbackSurveyForms feedbackSurveyForms={feedbackSurveyForms} />,
-    },
-    {
-      title: 'Footer',
-      component: <Footer footer={footer} />,
-    },
-  ];
+      component: <Section.FeedbackSurveyForms feedbackSurveyForms={feedbackSurveyForms} updateFormdata={handleUpdateFormData} />,
+    }
+  ]
+
+
 
 
   return (
@@ -128,7 +149,7 @@ export default function FormField() {
             <button type="button" onClick={handleNext} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Next</button>
           )}
           {step === steps.length - 1 && (
-            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <button type="submit" onClick={handleSubmit} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
           )}
         </div>
       </div>

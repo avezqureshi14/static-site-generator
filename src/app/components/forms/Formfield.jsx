@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const FormField = ({ fields }) => {
+const FormField = ({ fields, updateFormdata }) => {
     const isArray = fields.length > 0 && Array.isArray(fields[0].fields);
-    console.log(fields + "hey")
+    const handleInputChange = (e, section, fieldName) => {
+        const { value } = e.target;
+        updateFormdata(section, fieldName, value); // Call the updateFormData function
+    };
+    const sectionName = fields.map((fieldGroup, index) => (fieldGroup.title));
+    const sName = sectionName[0]?.split(":")[1]?.trim()?.toLowerCase();
     return (
         <div>
             {/* Render array-type fields */}
@@ -21,6 +26,7 @@ const FormField = ({ fields }) => {
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder={field.placeholder}
                                         required
+                                        onChange={(e) => handleInputChange(e, sName, field.name)}
                                     />
                                     :
                                     <textarea
@@ -29,6 +35,7 @@ const FormField = ({ fields }) => {
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder={field.placeholder}
                                         required
+                                        onChange={(e) => handleInputChange(e, sName, field.name)}
                                     ></textarea>
                                 }
                             </div>
@@ -53,6 +60,7 @@ const FormField = ({ fields }) => {
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder={fieldConfig.placeholder}
                                         required
+                                        onChange={(e) => handleInputChange(e, sName, fieldName)}
                                     />
                                     :
                                     <textarea
@@ -61,6 +69,7 @@ const FormField = ({ fields }) => {
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder={fieldConfig.placeholder}
                                         required
+                                        onChange={(e) => handleInputChange(e, sName, fieldName)}
                                     ></textarea>
                                 }
                             </div>
