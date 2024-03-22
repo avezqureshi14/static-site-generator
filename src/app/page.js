@@ -4,6 +4,7 @@ import formData from "../json/config.json";
 import * as Section from '../app/components/common/Section';
 import "./index.css"
 import Footer from './components/common/Footer';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const [step, setStep] = useState(0);
@@ -119,18 +120,15 @@ export default function Home() {
     }
   ]
 
-
-
-
   return (
-    <div className="flex">
+    <div className="flex dark:bg-black">
       <div className="hidden lg:block lg:w-64 lg:flex-shrink-0 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800" style={{ height: "100vh" }} >
         <div className="px-4 py-6">
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Steps</h2>
           <ol className="space-y-2">
             {steps.map((item, index) => (
-              <li key={index} className={`flex items-center space-x-3 ${index === step ? 'font-semibold text-blue-600 dark:text-blue-500' : 'text-gray-600 dark:text-gray-400'}`} style={{ listStyle: "none" }} >
-                <div className={`w-2 h-2 rounded-full ${index === step ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-400 dark:bg-gray-600'}`}></div>
+              <li key={index} className={`flex items-center space-x-3 ${index === step ? 'font-semibold text-gray-600 dark:text-gray-500' : 'text-gray-600 dark:text-gray-400'}`} style={{ listStyle: "none" }} >
+                <div className={`w-2 h-2 rounded-full ${index === step ? 'bg-gray-600 dark:bg-gray-500' : 'bg-gray-400 dark:bg-gray-600'}`}></div>
                 <span>{item.title}</span>
                 <span className="text-sm">{steps[index].label}</span>
               </li>
@@ -143,13 +141,13 @@ export default function Home() {
         {steps[step].component}
         <div className="flex justify-between mt-6">
           {step > 0 && (
-            <button type="button" onClick={handlePrevious} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Previous</button>
+            <Button onClick={handlePrevious}  >Previous</Button>
           )}
           {step < steps.length - 1 && (
-            <button type="button" onClick={handleNext} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Next</button>
+            <Button onClick={handleNext}  >Next</Button>
           )}
           {step === steps.length - 1 && (
-            <button type="submit" onClick={handleSubmit} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <Button onClick={handleSubmit}  >Submit</Button>
           )}
         </div>
       </div>
