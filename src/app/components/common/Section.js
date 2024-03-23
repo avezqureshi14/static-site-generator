@@ -1,5 +1,5 @@
 import React from 'react';
-import FormField from '../forms/FormField'; // Corrected the import name to match the actual file name
+import FormField from '../forms/FormField.jsx';
 
 export const Overview = ({ overviewFields, updateFormdata }) => (
     <FormField fields={[{ title: 'Step 1: Overview', fields: overviewFields }]} updateFormdata={updateFormdata} />
