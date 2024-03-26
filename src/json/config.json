@@ -31,9 +31,12 @@
     "platforms": [
         {
             "platform": {
-                "type": "text",
-                "label": "Platform",
-                "placeholder": "Enter platform name"
+                "type": "enum",
+                "placeholder": "Select platform",
+                "options": [
+                    "IOS",
+                    "Play Store"
+                ]
             },
             "release_date": {
                 "type": "date",
@@ -126,17 +129,15 @@
         }
     },
     "download_links": {
-        "links": {
-            "platform1": {
-                "type": "text",
-                "label": "Download Link 1",
-                "placeholder": "Enter download link 1"
-            },
-            "platform2": {
-                "type": "text",
-                "label": "Download Link 2",
-                "placeholder": "Enter download link 2"
-            }
+        "platform1": {
+            "type": "text",
+            "label": "Download Link 1",
+            "placeholder": "Enter download link 1"
+        },
+        "platform2": {
+            "type": "text",
+            "label": "Download Link 2",
+            "placeholder": "Enter download link 2"
         }
     },
     "privacy_policy_terms_of_service": {
@@ -161,17 +162,15 @@
         }
     ],
     "press_kit_media_resources": {
-        "resources": {
-            "resource1": {
-                "type": "text",
-                "label": "Resource 1",
-                "placeholder": "Enter resource 1 URL"
-            },
-            "resource2": {
-                "type": "text",
-                "label": "Resource 2",
-                "placeholder": "Enter resource 2 URL"
-            }
+        "resource1": {
+            "type": "text",
+            "label": "Resource 1",
+            "placeholder": "Enter resource 1 URL"
+        },
+        "resource2": {
+            "type": "text",
+            "label": "Resource 2",
+            "placeholder": "Enter resource 2 URL"
         }
     },
     "cross_promotion": [
@@ -199,40 +198,5 @@
             "label": "Form 2",
             "placeholder": "Enter feedback/survey form 2 URL"
         }
-    },
-    "footer": {
-        "copyright_info": {
-            "type": "text",
-            "label": "Copyright Info",
-            "placeholder": "Enter copyright information"
-        },
-        "legal_links": [
-            {
-                "document1": {
-                    "type": "text",
-                    "label": "Document 1",
-                    "placeholder": "Enter legal document 1 URL"
-                },
-                "document2": {
-                    "type": "text",
-                    "label": "Document 2",
-                    "placeholder": "Enter legal document 2 URL"
-                }
-            }
-        ],
-        "social_media_links": [
-            {
-                "platform1": {
-                    "type": "text",
-                    "label": "Social Media Link 1",
-                    "placeholder": "Enter social media link 1"
-                },
-                "platform2": {
-                    "type": "text",
-                    "label": "Social Media Link 2",
-                    "placeholder": "Enter social media link 2"
-                }
-            }
-        ]
     }
 }
