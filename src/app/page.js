@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button';
 import Component from './components/common/Component'; // Import the Component
 import "./index.css"
 import App from './components/common/App';
-
+import FormField from './components/forms/Formfield';
+import Example from './components/common/App';
 export default function Home() {
   const [siteData, setSiteData] = useState({});
   const [step, setStep] = useState(0); // Use state for managing step
@@ -67,10 +68,7 @@ export default function Home() {
   return (
     <div className="flex dark:bg-black">
       <div className="mx-auto w-full" style={{ maxWidth: "100vh !important", padding: "2rem 3rem" }}>
-        {steps[step].component}
-        <div className="flex justify-between mt-6">
-          <Button onClick={handleSubmit}>Submit</Button>
-        </div>
+        <FormField />
       </div>
     </div>
   );

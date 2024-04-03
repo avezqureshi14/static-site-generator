@@ -30,6 +30,7 @@
     },
     "platforms": [
         {
+            "id": 1,
             "platform": {
                 "type": "enum",
                 "placeholder": "Select platform",
@@ -59,15 +60,11 @@
     },
     "social_media_links": [
         {
+            "id": 1,
             "platform1": {
                 "type": "text",
-                "label": "Social Media Link 1",
-                "placeholder": "Enter social media link 1"
-            },
-            "platform2": {
-                "type": "text",
-                "label": "Social Media Link 2",
-                "placeholder": "Enter social media link 2"
+                "label": "Social Media Link",
+                "placeholder": "Enter social media link"
             }
         }
     ],
@@ -90,6 +87,7 @@
     },
     "screenshots": [
         {
+            "id": 1,
             "image": {
                 "type": "text",
                 "label": "Image",
@@ -104,6 +102,7 @@
     ],
     "faqs": [
         {
+            "id": 1,
             "question": {
                 "type": "text",
                 "label": "Question",
@@ -120,12 +119,12 @@
         "email": {
             "type": "email",
             "label": "Email",
-            "placeholder": "Enter email"
+            "placeholder": "mygame@gmail.com"
         },
         "website": {
             "type": "url",
             "label": "Website",
-            "placeholder": "Enter website URL"
+            "placeholder": "https://google.com"
         }
     },
     "download_links": {
@@ -152,15 +151,13 @@
             "placeholder": "Enter terms of service"
         }
     },
-    "gameplay_videos_tutorials": [
-        {
-            "videos": {
-                "type": "text",
-                "label": "Video",
-                "placeholder": "Enter gameplay video/tutorial URL"
-            }
+    "gameplay_videos_tutorials": {
+        "videos": {
+            "type": "text",
+            "label": "Video",
+            "placeholder": "Enter gameplay video/tutorial URL"
         }
-    ],
+    },
     "press_kit_media_resources": {
         "resource1": {
             "type": "text",
@@ -175,14 +172,10 @@
     },
     "cross_promotion": [
         {
+            "id": 1,
             "link1": {
                 "type": "text",
-                "label": "Cross Promotion Link 1",
-                "placeholder": "Enter cross promotion link URL"
-            },
-            "link2": {
-                "type": "text",
-                "label": "Cross Promotion Link 2",
+                "label": "Cross Promotion Link",
                 "placeholder": "Enter cross promotion link URL"
             }
         }
