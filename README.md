@@ -1,0 +1,8 @@
+# concurrency-service
+
+Two programs in one repo. They do not import each other.
+
+- `go/` is an HTTP worker with a bounded queue, timeouts, and a shutdown path.
+- `java/` is a separate Spring Boot API with its own pom. It can run beside the Go process.
+
+Nothing here shares a classpath or a go.mod with the other half.
