@@ -1,0 +1,33 @@
+package com.example.side;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class JobService {
+    private final ConcurrentHashMap<String, String> jobs = new ConcurrentHashMap<>();
+    private final int limit;
+
+    public JobService(int limit) {
+        this.limit = limit < 1 ? 1 : limit;
+    }
+
+    public boolean submit(String id, String name) {
+        if (id == null || id.isBlank() || name == null || name.isBlank()) {
+            return false;
+        }
+        if (jobs.size() >= limit) {
+            return false;
+        }
+        return jobs.putIfAbsent(id, name) == null;
+    }
+
+    public Optional<String> find(String id) {
+        return Optional.ofNullable(jobs.get(id));
+    }
+
+    public List<String> ids() {
+        return new ArrayList<>(jobs.keySet());
+    }
+}
