@@ -11,4 +11,10 @@ class JobServiceTest {
         assertTrue(jobs.submit("a", "one"));
         assertFalse(jobs.submit("b", "two"));
     }
+
+    @Test
+    void blankId() {
+        assertFalse(new JobService(4).submit("  ", "name"));
+    }
+
 }
