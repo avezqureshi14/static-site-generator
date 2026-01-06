@@ -17,4 +17,13 @@ class JobServiceTest {
         assertFalse(new JobService(4).submit("  ", "name"));
     }
 
+
+    @Test
+    void duplicateId() {
+        JobService jobs = new JobService(4);
+        assertTrue(jobs.submit("a", "first"));
+        assertFalse(jobs.submit("a", "second"));
+        assertEquals("first", jobs.find("a").orElseThrow());
+    }
+
 }
