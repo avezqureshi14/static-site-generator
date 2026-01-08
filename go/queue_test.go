@@ -11,3 +11,13 @@ func TestQueueRejectsWhenFull(t *testing.T) {
 		t.Fatal("second push should fail")
 	}
 }
+
+func TestQueueFifo(t *testing.T) {
+	q := NewQueue(4)
+	q.Push(Job{ID: "a"})
+	q.Push(Job{ID: "b"})
+	first, _ := q.Pop()
+	if first.ID != "a" {
+		t.Fatal(first.ID)
+	}
+}
