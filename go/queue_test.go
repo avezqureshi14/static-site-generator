@@ -21,3 +21,9 @@ func TestQueueFifo(t *testing.T) {
 		t.Fatal(first.ID)
 	}
 }
+
+func TestQueueEmptyPop(t *testing.T) {
+	if _, ok := NewQueue(2).Pop(); ok {
+		t.Fatal("empty")
+	}
+}
