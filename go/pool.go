@@ -55,3 +55,7 @@ func (p *Pool) Run(ctx context.Context) {
 func (p *Pool) Wait() {
 	p.wg.Wait()
 }
+
+func (p *Pool) Depth() int {
+	return p.queue.Len()
+}
