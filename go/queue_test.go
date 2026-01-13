@@ -27,3 +27,10 @@ func TestQueueEmptyPop(t *testing.T) {
 		t.Fatal("empty")
 	}
 }
+
+func TestDepthStartsEmpty(t *testing.T) {
+	p := NewPool(2, 8, 0)
+	if p.Depth() != 0 {
+		t.Fatal(p.Depth())
+	}
+}
