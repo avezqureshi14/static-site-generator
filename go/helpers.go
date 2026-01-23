@@ -20,3 +20,10 @@ func defaultWorkers(n int) int {
 	}
 	return n
 }
+
+func defaultQueue(n int) int {
+	if n < 1 {
+		return 1
+	}
+	return n
+}
