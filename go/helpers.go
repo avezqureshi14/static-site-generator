@@ -27,3 +27,7 @@ func defaultQueue(n int) int {
 	}
 	return n
 }
+
+func jobOK(job Job) bool {
+	return job.ID != "" && job.Name != ""
+}
