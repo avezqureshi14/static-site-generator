@@ -31,3 +31,7 @@ func defaultQueue(n int) int {
 func jobOK(job Job) bool {
 	return job.ID != "" && job.Name != ""
 }
+
+func cleanName(name string) string {
+	return strings.TrimSpace(name)
+}
