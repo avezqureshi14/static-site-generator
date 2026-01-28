@@ -35,3 +35,11 @@ func jobOK(job Job) bool {
 func cleanName(name string) string {
 	return strings.TrimSpace(name)
 }
+
+func clipName(name string) string {
+	name = strings.TrimSpace(name)
+	if len(name) > 80 {
+		return name[:80]
+	}
+	return name
+}
