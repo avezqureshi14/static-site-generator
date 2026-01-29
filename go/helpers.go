@@ -43,3 +43,7 @@ func clipName(name string) string {
 	}
 	return name
 }
+
+func idOK(id string) bool {
+	return id != "" && !strings.ContainsAny(id, " \t") && len(id) <= 64
+}
