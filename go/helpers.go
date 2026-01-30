@@ -47,3 +47,10 @@ func clipName(name string) string {
 func idOK(id string) bool {
 	return id != "" && !strings.ContainsAny(id, " \t") && len(id) <= 64
 }
+
+func shutdownWait(d time.Duration) time.Duration {
+	if d <= 0 || d > 10*time.Second {
+		return 3 * time.Second
+	}
+	return d
+}
