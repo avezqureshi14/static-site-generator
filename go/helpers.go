@@ -54,3 +54,7 @@ func shutdownWait(d time.Duration) time.Duration {
 	}
 	return d
 }
+
+func idlePoll() time.Duration {
+	return 5 * time.Millisecond
+}
