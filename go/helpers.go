@@ -58,3 +58,7 @@ func shutdownWait(d time.Duration) time.Duration {
 func idlePoll() time.Duration {
 	return 5 * time.Millisecond
 }
+
+func healthBody() string {
+	return "ok"
+}
