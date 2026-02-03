@@ -62,3 +62,7 @@ func idlePoll() time.Duration {
 func healthBody() string {
 	return "ok"
 }
+
+func acceptedStatus() int {
+	return http.StatusAccepted
+}
