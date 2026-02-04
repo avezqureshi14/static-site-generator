@@ -66,3 +66,7 @@ func healthBody() string {
 func acceptedStatus() int {
 	return http.StatusAccepted
 }
+
+func fullStatus() int {
+	return http.StatusServiceUnavailable
+}
