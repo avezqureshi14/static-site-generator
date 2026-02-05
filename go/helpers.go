@@ -70,3 +70,10 @@ func acceptedStatus() int {
 func fullStatus() int {
 	return http.StatusServiceUnavailable
 }
+
+func listenAddr(port string) string {
+	if port == "" {
+		return ":8081"
+	}
+	return ":" + port
+}
