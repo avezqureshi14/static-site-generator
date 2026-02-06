@@ -77,3 +77,7 @@ func listenAddr(port string) string {
 	}
 	return ":" + port
 }
+
+func barePort(port string) string {
+	return strings.TrimPrefix(port, ":")
+}
