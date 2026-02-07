@@ -30,4 +30,9 @@ public class JobService {
     public List<String> ids() {
         return new ArrayList<>(jobs.keySet());
     }
+
+    public boolean nameOk(String name) {
+        return name != null && !name.isBlank() && name.length() <= 80;
+    }
+
 }
