@@ -35,4 +35,9 @@ public class JobService {
         return name != null && !name.isBlank() && name.length() <= 80;
     }
 
+
+    public boolean idOk(String id) {
+        return id != null && !id.isBlank() && id.length() <= 64 && !id.contains(" ");
+    }
+
 }
