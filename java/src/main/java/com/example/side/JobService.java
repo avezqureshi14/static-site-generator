@@ -40,4 +40,9 @@ public class JobService {
         return id != null && !id.isBlank() && id.length() <= 64 && !id.contains(" ");
     }
 
+
+    public static int normalizeLimit(int limit) {
+        return limit < 1 ? 1 : limit;
+    }
+
 }
