@@ -45,4 +45,9 @@ public class JobService {
         return limit < 1 ? 1 : limit;
     }
 
+
+    public boolean missing(String id) {
+        return find(id).isEmpty();
+    }
+
 }
