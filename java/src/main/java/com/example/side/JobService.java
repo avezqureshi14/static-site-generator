@@ -50,4 +50,9 @@ public class JobService {
         return find(id).isEmpty();
     }
 
+
+    public int size() {
+        return jobs.size();
+    }
+
 }
