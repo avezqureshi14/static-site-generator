@@ -55,4 +55,9 @@ public class JobService {
         return jobs.size();
     }
 
+
+    public void clear() {
+        jobs.clear();
+    }
+
 }
