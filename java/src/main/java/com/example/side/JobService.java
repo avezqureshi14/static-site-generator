@@ -60,4 +60,9 @@ public class JobService {
         jobs.clear();
     }
 
+
+    public String trimName(String name) {
+        return name == null ? "" : name.trim();
+    }
+
 }
