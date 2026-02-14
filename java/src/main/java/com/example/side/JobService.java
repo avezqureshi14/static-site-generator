@@ -65,4 +65,9 @@ public class JobService {
         return name == null ? "" : name.trim();
     }
 
+
+    public boolean sameRow(String id) {
+        return jobs.containsKey(id);
+    }
+
 }
