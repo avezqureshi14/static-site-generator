@@ -12,3 +12,9 @@ func TestDefaultTimeout(t *testing.T) {
 		t.Fatal("timeout")
 	}
 }
+
+func TestDefaultWorkers(t *testing.T) {
+	if defaultWorkers(0) != 1 {
+		t.Fatal(defaultWorkers(0))
+	}
+}
