@@ -18,3 +18,9 @@ func TestDefaultWorkers(t *testing.T) {
 		t.Fatal(defaultWorkers(0))
 	}
 }
+
+func TestDefaultQueue(t *testing.T) {
+	if defaultQueue(0) != 1 {
+		t.Fatal("queue")
+	}
+}
