@@ -24,3 +24,12 @@ func TestDefaultQueue(t *testing.T) {
 		t.Fatal("queue")
 	}
 }
+
+func TestJobOK(t *testing.T) {
+	if jobOK(Job{ID: "a"}) {
+		t.Fatal("missing name")
+	}
+	if !jobOK(Job{ID: "a", Name: "n"}) {
+		t.Fatal("should pass")
+	}
+}
