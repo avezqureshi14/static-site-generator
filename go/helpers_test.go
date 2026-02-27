@@ -33,3 +33,10 @@ func TestJobOK(t *testing.T) {
 		t.Fatal("should pass")
 	}
 }
+
+func TestClipName(t *testing.T) {
+	long := strings.Repeat("a", 100)
+	if len(clipName(long)) != 80 {
+		t.Fatal(len(clipName(long)))
+	}
+}
