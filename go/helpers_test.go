@@ -40,3 +40,12 @@ func TestClipName(t *testing.T) {
 		t.Fatal(len(clipName(long)))
 	}
 }
+
+func TestIDSpaces(t *testing.T) {
+	if idOK("ab c") {
+		t.Fatal("space")
+	}
+	if !idOK("abc") {
+		t.Fatal("ok")
+	}
+}
