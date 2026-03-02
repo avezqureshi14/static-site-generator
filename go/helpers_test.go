@@ -49,3 +49,9 @@ func TestIDSpaces(t *testing.T) {
 		t.Fatal("ok")
 	}
 }
+
+func TestShutdownClamp(t *testing.T) {
+	if shutdownWait(time.Minute) != 3*time.Second {
+		t.Fatal("clamp")
+	}
+}
