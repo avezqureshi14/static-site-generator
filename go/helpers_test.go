@@ -55,3 +55,12 @@ func TestShutdownClamp(t *testing.T) {
 		t.Fatal("clamp")
 	}
 }
+
+func TestListenAddr(t *testing.T) {
+	if listenAddr("") != ":8081" {
+		t.Fatal(listenAddr(""))
+	}
+	if listenAddr("9090") != ":9090" {
+		t.Fatal(listenAddr("9090"))
+	}
+}
