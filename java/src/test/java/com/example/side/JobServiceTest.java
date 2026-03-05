@@ -26,4 +26,10 @@ class JobServiceTest {
         assertEquals("first", jobs.find("a").orElseThrow());
     }
 
+
+    @Test
+    void trimsName() {
+        assertEquals("ada", new JobService(2).trimName(" ada "));
+    }
+
 }
