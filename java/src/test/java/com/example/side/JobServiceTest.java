@@ -32,4 +32,10 @@ class JobServiceTest {
         assertEquals("ada", new JobService(2).trimName(" ada "));
     }
 
+
+    @Test
+    void zeroLimitBecomesOne() {
+        assertEquals(1, JobService.normalizeLimit(0));
+    }
+
 }
