@@ -38,4 +38,11 @@ class JobServiceTest {
         assertEquals(1, JobService.normalizeLimit(0));
     }
 
+
+    @Test
+    void spacedId() {
+        JobService jobs = new JobService(2);
+        assertFalse(jobs.idOk("a b"));
+    }
+
 }
