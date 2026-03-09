@@ -45,4 +45,10 @@ class JobServiceTest {
         assertFalse(jobs.idOk("a b"));
     }
 
+
+    @Test
+    void normalName() {
+        assertTrue(new JobService(2).nameOk("parse resume"));
+    }
+
 }
