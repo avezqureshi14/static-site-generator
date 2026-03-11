@@ -51,4 +51,13 @@ class JobServiceTest {
         assertTrue(new JobService(2).nameOk("parse resume"));
     }
 
+
+    @Test
+    void sizeGrows() {
+        JobService jobs = new JobService(4);
+        jobs.submit("a", "one");
+        jobs.submit("b", "two");
+        assertEquals(2, jobs.size());
+    }
+
 }
