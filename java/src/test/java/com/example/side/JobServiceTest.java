@@ -60,4 +60,13 @@ class JobServiceTest {
         assertEquals(2, jobs.size());
     }
 
+
+    @Test
+    void clearDropsRows() {
+        JobService jobs = new JobService(4);
+        jobs.submit("a", "one");
+        jobs.clear();
+        assertEquals(0, jobs.size());
+    }
+
 }
