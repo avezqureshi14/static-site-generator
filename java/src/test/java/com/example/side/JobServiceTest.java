@@ -69,4 +69,10 @@ class JobServiceTest {
         assertEquals(0, jobs.size());
     }
 
+
+    @Test
+    void missingId() {
+        assertTrue(new JobService(2).missing("nope"));
+    }
+
 }
