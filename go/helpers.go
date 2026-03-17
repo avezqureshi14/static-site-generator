@@ -81,3 +81,7 @@ func listenAddr(port string) string {
 func barePort(port string) string {
 	return strings.TrimPrefix(port, ":")
 }
+
+func healthStatus() int {
+	return http.StatusOK
+}
