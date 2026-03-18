@@ -85,3 +85,7 @@ func barePort(port string) string {
 func healthStatus() int {
 	return http.StatusOK
 }
+
+func badJobStatus() int {
+	return http.StatusBadRequest
+}
