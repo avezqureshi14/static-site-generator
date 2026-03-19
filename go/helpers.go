@@ -89,3 +89,7 @@ func healthStatus() int {
 func badJobStatus() int {
 	return http.StatusBadRequest
 }
+
+func methodStatus() int {
+	return http.StatusMethodNotAllowed
+}
