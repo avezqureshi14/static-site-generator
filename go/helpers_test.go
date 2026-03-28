@@ -64,3 +64,13 @@ func TestListenAddr(t *testing.T) {
 		t.Fatal(listenAddr("9090"))
 	}
 }
+
+func TestSubmitFull(t *testing.T) {
+	p := NewPool(1, 1, time.Second)
+	if !p.Submit(Job{ID: "a", Name: "n"}) {
+		t.Fatal("first")
+	}
+	if p.Submit(Job{ID: "b", Name: "m"}) {
+		t.Fatal("full")
+	}
+}
