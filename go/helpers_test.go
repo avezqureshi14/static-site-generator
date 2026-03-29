@@ -74,3 +74,11 @@ func TestSubmitFull(t *testing.T) {
 		t.Fatal("full")
 	}
 }
+
+func TestLen(t *testing.T) {
+	q := NewQueue(3)
+	q.Push(Job{ID: "a"})
+	if q.Len() != 1 {
+		t.Fatal(q.Len())
+	}
+}
