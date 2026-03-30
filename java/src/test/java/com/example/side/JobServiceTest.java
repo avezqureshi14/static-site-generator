@@ -75,4 +75,12 @@ class JobServiceTest {
         assertTrue(new JobService(2).missing("nope"));
     }
 
+
+    @Test
+    void idsContainStored() {
+        JobService jobs = new JobService(4);
+        jobs.submit("a", "one");
+        assertTrue(jobs.ids().contains("a"));
+    }
+
 }
