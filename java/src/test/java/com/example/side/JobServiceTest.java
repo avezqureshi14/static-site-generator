@@ -83,4 +83,10 @@ class JobServiceTest {
         assertTrue(jobs.ids().contains("a"));
     }
 
+
+    @Test
+    void longName() {
+        assertFalse(new JobService(1).nameOk("n".repeat(81)));
+    }
+
 }
