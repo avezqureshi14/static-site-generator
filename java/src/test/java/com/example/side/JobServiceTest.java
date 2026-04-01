@@ -89,4 +89,10 @@ class JobServiceTest {
         assertFalse(new JobService(1).nameOk("n".repeat(81)));
     }
 
+
+    @Test
+    void longId() {
+        assertFalse(new JobService(1).idOk("i".repeat(65)));
+    }
+
 }
