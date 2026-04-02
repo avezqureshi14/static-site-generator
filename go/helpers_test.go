@@ -82,3 +82,9 @@ func TestLen(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestClipShort(t *testing.T) {
+	if clipName("  hi ") != "hi" {
+		t.Fatal(clipName("hi"))
+	}
+}
