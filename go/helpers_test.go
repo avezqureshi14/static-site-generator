@@ -88,3 +88,9 @@ func TestClipShort(t *testing.T) {
 		t.Fatal(clipName("hi"))
 	}
 }
+
+func TestBarePort(t *testing.T) {
+	if barePort(":8081") != "8081" {
+		t.Fatal(barePort(":8081"))
+	}
+}
