@@ -95,4 +95,13 @@ class JobServiceTest {
         assertFalse(new JobService(1).idOk("i".repeat(65)));
     }
 
+
+    @Test
+    void sameRowAfterSubmit() {
+        JobService jobs = new JobService(2);
+        jobs.submit("a", "one");
+        assertTrue(jobs.sameRow("a"));
+        assertFalse(jobs.sameRow("b"));
+    }
+
 }
