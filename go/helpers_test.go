@@ -94,3 +94,9 @@ func TestBarePort(t *testing.T) {
 		t.Fatal(barePort(":8081"))
 	}
 }
+
+func TestIdlePoll(t *testing.T) {
+	if idlePoll() != 5*time.Millisecond {
+		t.Fatal(idlePoll())
+	}
+}
