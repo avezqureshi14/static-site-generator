@@ -100,3 +100,9 @@ func TestIdlePoll(t *testing.T) {
 		t.Fatal(idlePoll())
 	}
 }
+
+func TestHealthBody(t *testing.T) {
+	if healthBody() != "ok" {
+		t.Fatal(healthBody())
+	}
+}
