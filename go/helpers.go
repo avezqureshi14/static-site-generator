@@ -93,3 +93,7 @@ func badJobStatus() int {
 func methodStatus() int {
 	return http.StatusMethodNotAllowed
 }
+
+func abandoned(ctx context.Context) bool {
+	return ctx.Err() != nil
+}
