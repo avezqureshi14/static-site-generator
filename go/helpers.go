@@ -97,3 +97,9 @@ func methodStatus() int {
 func abandoned(ctx context.Context) bool {
 	return ctx.Err() != nil
 }
+
+func (q *Queue) Cap() int {
+	q.mu.Lock()
+	defer q.mu.Unlock()
+	return q.max
+}
