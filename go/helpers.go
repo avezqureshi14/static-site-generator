@@ -103,3 +103,7 @@ func (q *Queue) Cap() int {
 	defer q.mu.Unlock()
 	return q.max
 }
+
+func defaultPoolSize() int {
+	return 4
+}
