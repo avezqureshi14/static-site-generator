@@ -107,3 +107,7 @@ func (q *Queue) Cap() int {
 func defaultPoolSize() int {
 	return 4
 }
+
+func defaultPoolQueue() int {
+	return 32
+}
