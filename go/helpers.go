@@ -111,3 +111,7 @@ func defaultPoolSize() int {
 func defaultPoolQueue() int {
 	return 32
 }
+
+func blankName(name string) bool {
+	return strings.TrimSpace(name) == ""
+}
