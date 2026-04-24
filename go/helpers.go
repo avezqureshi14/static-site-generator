@@ -115,3 +115,7 @@ func defaultPoolQueue() int {
 func blankName(name string) bool {
 	return strings.TrimSpace(name) == ""
 }
+
+func sameID(a, b string) bool {
+	return strings.EqualFold(a, b)
+}
