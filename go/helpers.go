@@ -119,3 +119,7 @@ func blankName(name string) bool {
 func sameID(a, b string) bool {
 	return strings.EqualFold(a, b)
 }
+
+func readTimeout() time.Duration {
+	return 5 * time.Second
+}
