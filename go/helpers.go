@@ -123,3 +123,7 @@ func sameID(a, b string) bool {
 func readTimeout() time.Duration {
 	return 5 * time.Second
 }
+
+func writeTimeout() time.Duration {
+	return 5 * time.Second
+}
