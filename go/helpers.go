@@ -127,3 +127,7 @@ func readTimeout() time.Duration {
 func writeTimeout() time.Duration {
 	return 5 * time.Second
 }
+
+func idleTimeout() time.Duration {
+	return time.Minute
+}
