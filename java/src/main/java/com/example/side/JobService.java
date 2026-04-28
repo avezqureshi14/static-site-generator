@@ -70,4 +70,9 @@ public class JobService {
         return jobs.containsKey(id);
     }
 
+
+    public boolean presentId(String id) {
+        return id != null && !id.isBlank();
+    }
+
 }
