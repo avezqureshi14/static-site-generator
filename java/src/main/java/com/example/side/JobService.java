@@ -75,4 +75,9 @@ public class JobService {
         return id != null && !id.isBlank();
     }
 
+
+    public int count() {
+        return size();
+    }
+
 }
