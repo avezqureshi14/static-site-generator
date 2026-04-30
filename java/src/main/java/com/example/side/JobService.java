@@ -80,4 +80,10 @@ public class JobService {
         return size();
     }
 
+
+    public static int capLimit(int limit) {
+        int n = normalizeLimit(limit);
+        return n > 1000 ? 1000 : n;
+    }
+
 }
