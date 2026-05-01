@@ -86,4 +86,12 @@ public class JobService {
         return n > 1000 ? 1000 : n;
     }
 
+
+    public Optional<String> findTrimmed(String id) {
+        if (id == null || id.isBlank()) {
+            return Optional.empty();
+        }
+        return find(id.trim());
+    }
+
 }
