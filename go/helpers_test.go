@@ -106,3 +106,9 @@ func TestHealthBody(t *testing.T) {
 		t.Fatal(healthBody())
 	}
 }
+
+func TestQueueCap(t *testing.T) {
+	if NewQueue(7).Cap() != 7 {
+		t.Fatal("cap")
+	}
+}
