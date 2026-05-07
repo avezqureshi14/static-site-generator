@@ -112,3 +112,9 @@ func TestQueueCap(t *testing.T) {
 		t.Fatal("cap")
 	}
 }
+
+func TestBlankName(t *testing.T) {
+	if !blankName("   ") {
+		t.Fatal("spaces")
+	}
+}
