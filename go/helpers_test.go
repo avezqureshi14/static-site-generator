@@ -118,3 +118,9 @@ func TestBlankName(t *testing.T) {
 		t.Fatal("spaces")
 	}
 }
+
+func TestSameID(t *testing.T) {
+	if !sameID("Ab", "ab") {
+		t.Fatal("case")
+	}
+}
