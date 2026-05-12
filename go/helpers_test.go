@@ -124,3 +124,9 @@ func TestSameID(t *testing.T) {
 		t.Fatal("case")
 	}
 }
+
+func TestDefaultPoolSize(t *testing.T) {
+	if defaultPoolSize() != 4 {
+		t.Fatal(defaultPoolSize())
+	}
+}
