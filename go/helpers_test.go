@@ -130,3 +130,9 @@ func TestDefaultPoolSize(t *testing.T) {
 		t.Fatal(defaultPoolSize())
 	}
 }
+
+func TestReadTimeout(t *testing.T) {
+	if readTimeout() != 5*time.Second {
+		t.Fatal(readTimeout())
+	}
+}
