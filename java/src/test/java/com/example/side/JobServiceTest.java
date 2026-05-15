@@ -104,4 +104,10 @@ class JobServiceTest {
         assertFalse(jobs.sameRow("b"));
     }
 
+
+    @Test
+    void capLimitClamps() {
+        assertEquals(1000, JobService.capLimit(5000));
+    }
+
 }
