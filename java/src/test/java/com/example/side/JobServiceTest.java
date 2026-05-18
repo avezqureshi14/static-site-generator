@@ -110,4 +110,12 @@ class JobServiceTest {
         assertEquals(1000, JobService.capLimit(5000));
     }
 
+
+    @Test
+    void countMatchesSize() {
+        JobService jobs = new JobService(3);
+        jobs.submit("a", "n");
+        assertEquals(jobs.size(), jobs.count());
+    }
+
 }
