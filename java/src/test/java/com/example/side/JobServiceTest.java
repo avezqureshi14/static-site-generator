@@ -118,4 +118,10 @@ class JobServiceTest {
         assertEquals(jobs.size(), jobs.count());
     }
 
+
+    @Test
+    void blankIsNotPresent() {
+        assertFalse(new JobService(1).presentId("  "));
+    }
+
 }
