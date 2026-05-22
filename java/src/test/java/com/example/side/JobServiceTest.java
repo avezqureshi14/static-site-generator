@@ -124,4 +124,12 @@ class JobServiceTest {
         assertFalse(new JobService(1).presentId("  "));
     }
 
+
+    @Test
+    void findTrimmed() {
+        JobService jobs = new JobService(2);
+        jobs.submit("a", "n");
+        assertTrue(jobs.findTrimmed(" a ").isPresent());
+    }
+
 }
