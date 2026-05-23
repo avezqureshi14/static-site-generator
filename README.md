@@ -10,3 +10,5 @@ Nothing here shares a classpath or a go.mod with the other half.
 The Go worker listens on :8081. POST /v1/jobs with {"id","name"}. A full queue returns 503.
 
 The Java API is a normal Spring Boot process. Give it server.port=8082 if both should run together.
+
+Run `go run .` inside go/, and `mvn spring-boot:run` inside java/. They stay separate.
