@@ -136,3 +136,13 @@ func TestReadTimeout(t *testing.T) {
 		t.Fatal(readTimeout())
 	}
 }
+
+func TestQueue_a(t *testing.T) {
+	q := NewQueue(1)
+	if !q.Push(Job{ID: "a"}) {
+		t.Fatal("a")
+	}
+	if q.Len() != 1 {
+		t.Fatal(q.Len())
+	}
+}
