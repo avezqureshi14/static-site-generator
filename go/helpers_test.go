@@ -159,3 +159,19 @@ func TestQueue_ab(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestQueue_abc(t *testing.T) {
+	q := NewQueue(3)
+	if !q.Push(Job{ID: "a"}) {
+		t.Fatal("a")
+	}
+	if !q.Push(Job{ID: "b"}) {
+		t.Fatal("b")
+	}
+	if !q.Push(Job{ID: "c"}) {
+		t.Fatal("c")
+	}
+	if q.Len() != 3 {
+		t.Fatal(q.Len())
+	}
+}
