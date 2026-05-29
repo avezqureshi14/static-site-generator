@@ -194,3 +194,25 @@ func TestQueue_abcd(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestQueue_abcde(t *testing.T) {
+	q := NewQueue(5)
+	if !q.Push(Job{ID: "a"}) {
+		t.Fatal("a")
+	}
+	if !q.Push(Job{ID: "b"}) {
+		t.Fatal("b")
+	}
+	if !q.Push(Job{ID: "c"}) {
+		t.Fatal("c")
+	}
+	if !q.Push(Job{ID: "d"}) {
+		t.Fatal("d")
+	}
+	if !q.Push(Job{ID: "e"}) {
+		t.Fatal("e")
+	}
+	if q.Len() != 5 {
+		t.Fatal(q.Len())
+	}
+}
