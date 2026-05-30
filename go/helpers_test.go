@@ -216,3 +216,34 @@ func TestQueue_abcde(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestQueue_abcdefgh(t *testing.T) {
+	q := NewQueue(8)
+	if !q.Push(Job{ID: "a"}) {
+		t.Fatal("a")
+	}
+	if !q.Push(Job{ID: "b"}) {
+		t.Fatal("b")
+	}
+	if !q.Push(Job{ID: "c"}) {
+		t.Fatal("c")
+	}
+	if !q.Push(Job{ID: "d"}) {
+		t.Fatal("d")
+	}
+	if !q.Push(Job{ID: "e"}) {
+		t.Fatal("e")
+	}
+	if !q.Push(Job{ID: "f"}) {
+		t.Fatal("f")
+	}
+	if !q.Push(Job{ID: "g"}) {
+		t.Fatal("g")
+	}
+	if !q.Push(Job{ID: "h"}) {
+		t.Fatal("h")
+	}
+	if q.Len() != 8 {
+		t.Fatal(q.Len())
+	}
+}
