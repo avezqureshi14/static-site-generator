@@ -247,3 +247,16 @@ func TestQueue_abcdefgh(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestQueue_xy(t *testing.T) {
+	q := NewQueue(2)
+	if !q.Push(Job{ID: "x"}) {
+		t.Fatal("x")
+	}
+	if !q.Push(Job{ID: "y"}) {
+		t.Fatal("y")
+	}
+	if q.Len() != 2 {
+		t.Fatal(q.Len())
+	}
+}
