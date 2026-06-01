@@ -260,3 +260,13 @@ func TestQueue_xy(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestQueue_z(t *testing.T) {
+	q := NewQueue(1)
+	if !q.Push(Job{ID: "z"}) {
+		t.Fatal("z")
+	}
+	if q.Len() != 1 {
+		t.Fatal(q.Len())
+	}
+}
