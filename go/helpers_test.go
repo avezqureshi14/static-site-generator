@@ -270,3 +270,15 @@ func TestQueue_z(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_a_queue_of_six_holds_six_jobs(t *testing.T) {
+	q := NewQueue(6)
+	for i := 0; i < 6; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 6 {
+		t.Fatal(q.Len())
+	}
+}
