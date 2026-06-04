@@ -282,3 +282,15 @@ func TestHold_a_queue_of_six_holds_six_jobs(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_seven_jobs_need_a_queue_of_at_least_seve(t *testing.T) {
+	q := NewQueue(7)
+	for i := 0; i < 7; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 7 {
+		t.Fatal(q.Len())
+	}
+}
