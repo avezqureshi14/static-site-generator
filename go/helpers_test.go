@@ -306,3 +306,15 @@ func TestHold_nine_fits_when_the_cap_is_nine(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_ten_is_the_cap_I_used_in_a_load_note(t *testing.T) {
+	q := NewQueue(10)
+	for i := 0; i < 10; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 10 {
+		t.Fatal(q.Len())
+	}
+}
