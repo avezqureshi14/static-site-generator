@@ -318,3 +318,15 @@ func TestHold_ten_is_the_cap_I_used_in_a_load_note(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_twelve_jobs_stay_under_a_cap_of_twelve(t *testing.T) {
+	q := NewQueue(12)
+	for i := 0; i < 12; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 12 {
+		t.Fatal(q.Len())
+	}
+}
