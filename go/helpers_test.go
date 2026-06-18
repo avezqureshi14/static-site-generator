@@ -330,3 +330,15 @@ func TestHold_twelve_jobs_stay_under_a_cap_of_twelve(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_sixteen_is_enough_for_a_small_burst(t *testing.T) {
+	q := NewQueue(16)
+	for i := 0; i < 16; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 16 {
+		t.Fatal(q.Len())
+	}
+}
