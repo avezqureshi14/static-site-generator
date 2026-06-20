@@ -354,3 +354,15 @@ func TestHold_twenty_is_the_cap_before_I_start_to_worr(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_twenty_four_matches_a_day_of_hourly_jobs(t *testing.T) {
+	q := NewQueue(24)
+	for i := 0; i < 24; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 24 {
+		t.Fatal(q.Len())
+	}
+}
