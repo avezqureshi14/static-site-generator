@@ -378,3 +378,15 @@ func TestHold_thirty_two_matches_the_http_queue_defaul(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_forty_is_wider_than_the_default_pool_que(t *testing.T) {
+	q := NewQueue(40)
+	for i := 0; i < 40; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 40 {
+		t.Fatal(q.Len())
+	}
+}
