@@ -390,3 +390,15 @@ func TestHold_forty_is_wider_than_the_default_pool_que(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_a_single_letter_id_is_still_an_id(t *testing.T) {
+	q := NewQueue(1)
+	for i := 0; i < 1; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 1 {
+		t.Fatal(q.Len())
+	}
+}
