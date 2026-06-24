@@ -402,3 +402,15 @@ func TestHold_a_single_letter_id_is_still_an_id(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_ids_can_be_digits(t *testing.T) {
+	q := NewQueue(2)
+	for i := 0; i < 2; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 2 {
+		t.Fatal(q.Len())
+	}
+}
