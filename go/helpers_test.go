@@ -414,3 +414,15 @@ func TestHold_ids_can_be_digits(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_a_hyphenated_id_is_fine(t *testing.T) {
+	q := NewQueue(3)
+	for i := 0; i < 3; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 3 {
+		t.Fatal(q.Len())
+	}
+}
