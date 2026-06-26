@@ -426,3 +426,15 @@ func TestHold_a_hyphenated_id_is_fine(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_an_underscore_id_is_fine(t *testing.T) {
+	q := NewQueue(4)
+	for i := 0; i < 4; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 4 {
+		t.Fatal(q.Len())
+	}
+}
