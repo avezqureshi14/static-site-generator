@@ -438,3 +438,15 @@ func TestHold_an_underscore_id_is_fine(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func TestHold_mixed_case_ids_are_kept_as_typed(t *testing.T) {
+	q := NewQueue(5)
+	for i := 0; i < 5; i++ {
+		if !q.Push(Job{ID: string(rune('a' + i%26)), Name: "n"}) {
+			t.Fatal(i)
+		}
+	}
+	if q.Len() != 5 {
+		t.Fatal(q.Len())
+	}
+}
