@@ -132,4 +132,15 @@ class JobServiceTest {
         assertTrue(jobs.findTrimmed(" a ").isPresent());
     }
 
+
+    @Test
+    void limit_four_stores_four_names() {
+        JobService jobs = new JobService(4);
+        for (int i = 0; i < 4; i++) {
+            assertTrue(jobs.submit("id" + i, "name" + i));
+        }
+        assertFalse(jobs.submit("overflow", "nope"));
+        assertEquals(4, jobs.size());
+    }
+
 }
