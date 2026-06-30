@@ -154,4 +154,15 @@ class JobServiceTest {
         assertEquals(6, jobs.size());
     }
 
+
+    @Test
+    void limit_eight_stores_eight_names() {
+        JobService jobs = new JobService(8);
+        for (int i = 0; i < 8; i++) {
+            assertTrue(jobs.submit("id" + i, "name" + i));
+        }
+        assertFalse(jobs.submit("overflow", "nope"));
+        assertEquals(8, jobs.size());
+    }
+
 }
