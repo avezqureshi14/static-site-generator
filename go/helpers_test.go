@@ -450,3 +450,9 @@ func TestHold_mixed_case_ids_are_kept_as_typed(t *testing.T) {
 		t.Fatal(q.Len())
 	}
 }
+
+func Test_empty_id_is_not_ok(t *testing.T) {
+	if !(idOK("") == false) {
+		t.Fatal(idOK(""))
+	}
+}
