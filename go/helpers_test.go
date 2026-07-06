@@ -456,3 +456,9 @@ func Test_empty_id_is_not_ok(t *testing.T) {
 		t.Fatal(idOK(""))
 	}
 }
+
+func Test_a_64_char_id_is_ok(t *testing.T) {
+	if !(idOK(strings.Repeat("a", 64)) == true) {
+		t.Fatal(idOK(strings.Repeat("a", 64)))
+	}
+}
