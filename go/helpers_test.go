@@ -468,3 +468,9 @@ func Test_a_65_char_id_is_too_long(t *testing.T) {
 		t.Fatal(idOK(strings.Repeat("b", 65)))
 	}
 }
+
+func Test_tab_inside_an_id_fails(t *testing.T) {
+	if !(idOK("a\tb") == false) {
+		t.Fatal(idOK("a\tb"))
+	}
+}
