@@ -474,3 +474,9 @@ func Test_tab_inside_an_id_fails(t *testing.T) {
 		t.Fatal(idOK("a\tb"))
 	}
 }
+
+func Test_clean_name_trims_sides(t *testing.T) {
+	if !(cleanName("  job  ") == "job" == true) {
+		t.Fatal(cleanName("  job  ") == "job")
+	}
+}
