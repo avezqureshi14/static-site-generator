@@ -480,3 +480,9 @@ func Test_clean_name_trims_sides(t *testing.T) {
 		t.Fatal(cleanName("  job  ") == "job")
 	}
 }
+
+func Test_clip_name_of_80_stays_80(t *testing.T) {
+	if !(len(clipName(strings.Repeat("c", 80))) == 80 == true) {
+		t.Fatal(len(clipName(strings.Repeat("c", 80))) == 80)
+	}
+}
