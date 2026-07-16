@@ -486,3 +486,9 @@ func Test_clip_name_of_80_stays_80(t *testing.T) {
 		t.Fatal(len(clipName(strings.Repeat("c", 80))) == 80)
 	}
 }
+
+func Test_workers_of_3_stay_3(t *testing.T) {
+	if !(defaultWorkers(3) == 3 == true) {
+		t.Fatal(defaultWorkers(3) == 3)
+	}
+}
