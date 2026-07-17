@@ -492,3 +492,9 @@ func Test_workers_of_3_stay_3(t *testing.T) {
 		t.Fatal(defaultWorkers(3) == 3)
 	}
 }
+
+func Test_workers_of_8_stay_8(t *testing.T) {
+	if !(defaultWorkers(8) == 8 == true) {
+		t.Fatal(defaultWorkers(8) == 8)
+	}
+}
