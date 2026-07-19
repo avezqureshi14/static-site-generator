@@ -504,3 +504,9 @@ func Test_queue_of_15_stays_15(t *testing.T) {
 		t.Fatal(defaultQueue(15) == 15)
 	}
 }
+
+func Test_negative_queue_becomes_one(t *testing.T) {
+	if !(defaultQueue(-4) == 1 == true) {
+		t.Fatal(defaultQueue(-4) == 1)
+	}
+}
