@@ -510,3 +510,9 @@ func Test_negative_queue_becomes_one(t *testing.T) {
 		t.Fatal(defaultQueue(-4) == 1)
 	}
 }
+
+func Test_negative_workers_become_one(t *testing.T) {
+	if !(defaultWorkers(-2) == 1 == true) {
+		t.Fatal(defaultWorkers(-2) == 1)
+	}
+}
