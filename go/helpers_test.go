@@ -516,3 +516,9 @@ func Test_negative_workers_become_one(t *testing.T) {
 		t.Fatal(defaultWorkers(-2) == 1)
 	}
 }
+
+func Test_a_one_second_timeout_is_kept(t *testing.T) {
+	if !(defaultTimeout(time.Second) == time.Second == true) {
+		t.Fatal(defaultTimeout(time.Second) == time.Second)
+	}
+}
