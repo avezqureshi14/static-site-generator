@@ -522,3 +522,9 @@ func Test_a_one_second_timeout_is_kept(t *testing.T) {
 		t.Fatal(defaultTimeout(time.Second) == time.Second)
 	}
 }
+
+func Test_a_half_second_timeout_is_kept(t *testing.T) {
+	if !(defaultTimeout(500*time.Millisecond) == 500*time.Millisecond == true) {
+		t.Fatal(defaultTimeout(500*time.Millisecond) == 500*time.Millisecond)
+	}
+}
