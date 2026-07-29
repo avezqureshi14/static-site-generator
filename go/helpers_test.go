@@ -528,3 +528,9 @@ func Test_a_half_second_timeout_is_kept(t *testing.T) {
 		t.Fatal(defaultTimeout(500*time.Millisecond) == 500*time.Millisecond)
 	}
 }
+
+func Test_shutdown_of_two_seconds_is_kept(t *testing.T) {
+	if !(shutdownWait(2*time.Second) == 2*time.Second == true) {
+		t.Fatal(shutdownWait(2*time.Second) == 2*time.Second)
+	}
+}
