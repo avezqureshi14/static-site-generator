@@ -534,3 +534,9 @@ func Test_shutdown_of_two_seconds_is_kept(t *testing.T) {
 		t.Fatal(shutdownWait(2*time.Second) == 2*time.Second)
 	}
 }
+
+func Test_shutdown_of_zero_falls_back(t *testing.T) {
+	if !(shutdownWait(0) == 3*time.Second == true) {
+		t.Fatal(shutdownWait(0) == 3*time.Second)
+	}
+}
