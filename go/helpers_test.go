@@ -540,3 +540,9 @@ func Test_shutdown_of_zero_falls_back(t *testing.T) {
 		t.Fatal(shutdownWait(0) == 3*time.Second)
 	}
 }
+
+func Test_full_status_is_503(t *testing.T) {
+	if !(fullStatus() == 503 == true) {
+		t.Fatal(fullStatus() == 503)
+	}
+}
