@@ -546,3 +546,9 @@ func Test_full_status_is_503(t *testing.T) {
 		t.Fatal(fullStatus() == 503)
 	}
 }
+
+func Test_accepted_status_is_202(t *testing.T) {
+	if !(acceptedStatus() == 202 == true) {
+		t.Fatal(acceptedStatus() == 202)
+	}
+}
