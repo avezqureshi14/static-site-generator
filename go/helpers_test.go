@@ -552,3 +552,9 @@ func Test_accepted_status_is_202(t *testing.T) {
 		t.Fatal(acceptedStatus() == 202)
 	}
 }
+
+func Test_health_status_is_200(t *testing.T) {
+	if !(healthStatus() == 200 == true) {
+		t.Fatal(healthStatus() == 200)
+	}
+}
