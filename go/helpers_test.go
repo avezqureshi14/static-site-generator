@@ -558,3 +558,9 @@ func Test_health_status_is_200(t *testing.T) {
 		t.Fatal(healthStatus() == 200)
 	}
 }
+
+func Test_bad_job_status_is_400(t *testing.T) {
+	if !(badJobStatus() == 400 == true) {
+		t.Fatal(badJobStatus() == 400)
+	}
+}
