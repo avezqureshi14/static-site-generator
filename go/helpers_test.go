@@ -564,3 +564,9 @@ func Test_bad_job_status_is_400(t *testing.T) {
 		t.Fatal(badJobStatus() == 400)
 	}
 }
+
+func Test_method_status_is_405(t *testing.T) {
+	if !(methodStatus() == 405 == true) {
+		t.Fatal(methodStatus() == 405)
+	}
+}
