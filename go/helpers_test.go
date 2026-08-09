@@ -570,3 +570,9 @@ func Test_method_status_is_405(t *testing.T) {
 		t.Fatal(methodStatus() == 405)
 	}
 }
+
+func Test_port_8081_bare(t *testing.T) {
+	if !(barePort("8081") == "8081" == true) {
+		t.Fatal(barePort("8081") == "8081")
+	}
+}
