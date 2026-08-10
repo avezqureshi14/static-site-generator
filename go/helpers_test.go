@@ -576,3 +576,9 @@ func Test_port_8081_bare(t *testing.T) {
 		t.Fatal(barePort("8081") == "8081")
 	}
 }
+
+func Test_listen_uses_7070(t *testing.T) {
+	if !(listenAddr("7070") == ":7070" == true) {
+		t.Fatal(listenAddr("7070") == ":7070")
+	}
+}
