@@ -582,3 +582,9 @@ func Test_listen_uses_7070(t *testing.T) {
 		t.Fatal(listenAddr("7070") == ":7070")
 	}
 }
+
+func Test_job_with_only_a_name_fails(t *testing.T) {
+	if !(jobOK(Job{Name: "n"}) == false) {
+		t.Fatal(jobOK(Job{Name: "n"}))
+	}
+}
