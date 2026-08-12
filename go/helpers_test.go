@@ -588,3 +588,9 @@ func Test_job_with_only_a_name_fails(t *testing.T) {
 		t.Fatal(jobOK(Job{Name: "n"}))
 	}
 }
+
+func Test_job_with_both_fields_passes(t *testing.T) {
+	if !(jobOK(Job{ID: "1", Name: "n"}) == true) {
+		t.Fatal(jobOK(Job{ID: "1", Name: "n"}))
+	}
+}
