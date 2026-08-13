@@ -594,3 +594,9 @@ func Test_job_with_both_fields_passes(t *testing.T) {
 		t.Fatal(jobOK(Job{ID: "1", Name: "n"}))
 	}
 }
+
+func Test_blank_name_helper_sees_spaces(t *testing.T) {
+	if !(blankName(" ") == true) {
+		t.Fatal(blankName(" "))
+	}
+}
