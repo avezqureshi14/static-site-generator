@@ -600,3 +600,9 @@ func Test_blank_name_helper_sees_spaces(t *testing.T) {
 		t.Fatal(blankName(" "))
 	}
 }
+
+func Test_blank_name_helper_allows_text(t *testing.T) {
+	if !(blankName("run") == false) {
+		t.Fatal(blankName("run"))
+	}
+}
