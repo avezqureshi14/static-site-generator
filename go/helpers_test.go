@@ -606,3 +606,9 @@ func Test_blank_name_helper_allows_text(t *testing.T) {
 		t.Fatal(blankName("run"))
 	}
 }
+
+func Test_same_id_is_true_for_equal_strings(t *testing.T) {
+	if !(sameID("aa", "aa") == true) {
+		t.Fatal(sameID("aa", "aa"))
+	}
+}
