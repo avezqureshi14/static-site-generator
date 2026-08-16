@@ -612,3 +612,9 @@ func Test_same_id_is_true_for_equal_strings(t *testing.T) {
 		t.Fatal(sameID("aa", "aa"))
 	}
 }
+
+func Test_different_ids_are_not_the_same(t *testing.T) {
+	if !(sameID("aa", "bb") == false) {
+		t.Fatal(sameID("aa", "bb"))
+	}
+}
