@@ -618,3 +618,9 @@ func Test_different_ids_are_not_the_same(t *testing.T) {
 		t.Fatal(sameID("aa", "bb"))
 	}
 }
+
+func Test_write_timeout_is_five_seconds(t *testing.T) {
+	if !(writeTimeout() == 5*time.Second == true) {
+		t.Fatal(writeTimeout() == 5*time.Second)
+	}
+}
