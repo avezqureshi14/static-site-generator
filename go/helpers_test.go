@@ -624,3 +624,9 @@ func Test_write_timeout_is_five_seconds(t *testing.T) {
 		t.Fatal(writeTimeout() == 5*time.Second)
 	}
 }
+
+func Test_idle_timeout_is_a_minute(t *testing.T) {
+	if !(idleTimeout() == time.Minute == true) {
+		t.Fatal(idleTimeout() == time.Minute)
+	}
+}
