@@ -630,3 +630,9 @@ func Test_idle_timeout_is_a_minute(t *testing.T) {
 		t.Fatal(idleTimeout() == time.Minute)
 	}
 }
+
+func Test_default_pool_queue_is_32(t *testing.T) {
+	if !(defaultPoolQueue() == 32 == true) {
+		t.Fatal(defaultPoolQueue() == 32)
+	}
+}
