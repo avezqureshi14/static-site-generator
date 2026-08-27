@@ -636,3 +636,9 @@ func Test_default_pool_queue_is_32(t *testing.T) {
 		t.Fatal(defaultPoolQueue() == 32)
 	}
 }
+
+func Test_abandoned_is_false_on_a_live_context(t *testing.T) {
+	if !(abandoned(context.Background()) == false) {
+		t.Fatal(abandoned(context.Background()))
+	}
+}
