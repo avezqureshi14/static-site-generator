@@ -642,3 +642,9 @@ func Test_abandoned_is_false_on_a_live_context(t *testing.T) {
 		t.Fatal(abandoned(context.Background()))
 	}
 }
+
+func Test_health_body_length_is_2(t *testing.T) {
+	if !(len(healthBody()) == 2 == true) {
+		t.Fatal(len(healthBody()) == 2)
+	}
+}
