@@ -648,3 +648,9 @@ func Test_health_body_length_is_2(t *testing.T) {
 		t.Fatal(len(healthBody()) == 2)
 	}
 }
+
+func Test_idle_poll_is_positive(t *testing.T) {
+	if !(idlePoll() > 0 == true) {
+		t.Fatal(idlePoll() > 0)
+	}
+}
