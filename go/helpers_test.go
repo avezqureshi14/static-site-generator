@@ -654,3 +654,9 @@ func Test_idle_poll_is_positive(t *testing.T) {
 		t.Fatal(idlePoll() > 0)
 	}
 }
+
+func Test_queue_cap_of_1_is_1(t *testing.T) {
+	if !(NewQueue(1).Cap() == 1 == true) {
+		t.Fatal(NewQueue(1).Cap() == 1)
+	}
+}
