@@ -660,3 +660,9 @@ func Test_queue_cap_of_1_is_1(t *testing.T) {
 		t.Fatal(NewQueue(1).Cap() == 1)
 	}
 }
+
+func Test_queue_cap_of_9_is_9(t *testing.T) {
+	if !(NewQueue(9).Cap() == 9 == true) {
+		t.Fatal(NewQueue(9).Cap() == 9)
+	}
+}
