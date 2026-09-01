@@ -666,3 +666,9 @@ func Test_queue_cap_of_9_is_9(t *testing.T) {
 		t.Fatal(NewQueue(9).Cap() == 9)
 	}
 }
+
+func Test_pop_after_one_push_returns_that_id(t *testing.T) {
+	if !(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); j, ok := q.Pop(); return ok && j.ID == "z" }() == true) {
+		t.Fatal(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); j, ok := q.Pop(); return ok && j.ID == "z" }())
+	}
+}
