@@ -672,3 +672,9 @@ func Test_pop_after_one_push_returns_that_id(t *testing.T) {
 		t.Fatal(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); j, ok := q.Pop(); return ok && j.ID == "z" }())
 	}
 }
+
+func Test_len_is_zero_after_pop(t *testing.T) {
+	if !(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); q.Pop(); return q.Len() == 0 }() == true) {
+		t.Fatal(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); q.Pop(); return q.Len() == 0 }())
+	}
+}
