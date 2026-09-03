@@ -678,3 +678,9 @@ func Test_len_is_zero_after_pop(t *testing.T) {
 		t.Fatal(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); q.Pop(); return q.Len() == 0 }())
 	}
 }
+
+func Test_second_pop_on_one_item_fails(t *testing.T) {
+	if !(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); q.Pop(); _, ok := q.Pop(); return !ok }() == true) {
+		t.Fatal(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); q.Pop(); _, ok := q.Pop(); return !ok }())
+	}
+}
