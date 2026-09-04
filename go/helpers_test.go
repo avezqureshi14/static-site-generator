@@ -684,3 +684,9 @@ func Test_second_pop_on_one_item_fails(t *testing.T) {
 		t.Fatal(func() bool { q := NewQueue(2); q.Push(Job{ID: "z"}); q.Pop(); _, ok := q.Pop(); return !ok }())
 	}
 }
+
+func Test_push_false_does_not_grow_len(t *testing.T) {
+	if !(func() bool { q := NewQueue(1); q.Push(Job{ID: "z"}); q.Push(Job{ID: "y"}); return q.Len() == 1 }() == true) {
+		t.Fatal(func() bool { q := NewQueue(1); q.Push(Job{ID: "z"}); q.Push(Job{ID: "y"}); return q.Len() == 1 }())
+	}
+}
