@@ -690,3 +690,9 @@ func Test_push_false_does_not_grow_len(t *testing.T) {
 		t.Fatal(func() bool { q := NewQueue(1); q.Push(Job{ID: "z"}); q.Push(Job{ID: "y"}); return q.Len() == 1 }())
 	}
 }
+
+func Test_fifo_still_returns_the_first_of_three(t *testing.T) {
+	if !(func() bool { q := NewQueue(3); q.Push(Job{ID: "a"}); q.Push(Job{ID: "b"}); j, _ := q.Pop(); return j.ID == "a" }() == true) {
+		t.Fatal(func() bool { q := NewQueue(3); q.Push(Job{ID: "a"}); q.Push(Job{ID: "b"}); j, _ := q.Pop(); return j.ID == "a" }())
+	}
+}
