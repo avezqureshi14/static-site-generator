@@ -696,3 +696,9 @@ func Test_fifo_still_returns_the_first_of_three(t *testing.T) {
 		t.Fatal(func() bool { q := NewQueue(3); q.Push(Job{ID: "a"}); q.Push(Job{ID: "b"}); j, _ := q.Pop(); return j.ID == "a" }())
 	}
 }
+
+func Test_middle_job_is_second_out(t *testing.T) {
+	if !(func() bool { q := NewQueue(3); q.Push(Job{ID: "a"}); q.Push(Job{ID: "b"}); q.Pop(); j, _ := q.Pop(); return j.ID == "b" }() == true) {
+		t.Fatal(func() bool { q := NewQueue(3); q.Push(Job{ID: "a"}); q.Push(Job{ID: "b"}); q.Pop(); j, _ := q.Pop(); return j.ID == "b" }())
+	}
+}
