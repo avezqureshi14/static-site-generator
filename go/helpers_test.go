@@ -702,3 +702,9 @@ func Test_middle_job_is_second_out(t *testing.T) {
 		t.Fatal(func() bool { q := NewQueue(3); q.Push(Job{ID: "a"}); q.Push(Job{ID: "b"}); q.Pop(); j, _ := q.Pop(); return j.ID == "b" }())
 	}
 }
+
+func Test_depth_follows_the_queue(t *testing.T) {
+	if !(func() bool { p := NewPool(1, 2, time.Second); p.Submit(Job{ID: "a", Name: "n"}); return p.Depth() == 1 }() == true) {
+		t.Fatal(func() bool { p := NewPool(1, 2, time.Second); p.Submit(Job{ID: "a", Name: "n"}); return p.Depth() == 1 }())
+	}
+}
