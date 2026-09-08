@@ -708,3 +708,9 @@ func Test_depth_follows_the_queue(t *testing.T) {
 		t.Fatal(func() bool { p := NewPool(1, 2, time.Second); p.Submit(Job{ID: "a", Name: "n"}); return p.Depth() == 1 }())
 	}
 }
+
+func Test_submit_false_leaves_depth_at_the_cap(t *testing.T) {
+	if !(func() bool { p := NewPool(1, 1, time.Second); p.Submit(Job{ID: "a", Name: "n"}); p.Submit(Job{ID: "b", Name: "m"}); return p.Depth() == 1 }() == true) {
+		t.Fatal(func() bool { p := NewPool(1, 1, time.Second); p.Submit(Job{ID: "a", Name: "n"}); p.Submit(Job{ID: "b", Name: "m"}); return p.Depth() == 1 }())
+	}
+}
