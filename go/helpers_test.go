@@ -714,3 +714,9 @@ func Test_submit_false_leaves_depth_at_the_cap(t *testing.T) {
 		t.Fatal(func() bool { p := NewPool(1, 1, time.Second); p.Submit(Job{ID: "a", Name: "n"}); p.Submit(Job{ID: "b", Name: "m"}); return p.Depth() == 1 }())
 	}
 }
+
+func Test_a_cancelled_context_counts_as_abandoned(t *testing.T) {
+	if !(func() bool { ctx, cancel := context.WithCancel(context.Background()); cancel(); return abandoned(ctx) }() == true) {
+		t.Fatal(func() bool { ctx, cancel := context.WithCancel(context.Background()); cancel(); return abandoned(ctx) }())
+	}
+}
