@@ -720,3 +720,9 @@ func Test_a_cancelled_context_counts_as_abandoned(t *testing.T) {
 		t.Fatal(func() bool { ctx, cancel := context.WithCancel(context.Background()); cancel(); return abandoned(ctx) }())
 	}
 }
+
+func Test_live_context_is_not_abandoned(t *testing.T) {
+	if !(abandoned(context.Background()) == false) {
+		t.Fatal(abandoned(context.Background()))
+	}
+}
