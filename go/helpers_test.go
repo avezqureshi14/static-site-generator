@@ -726,3 +726,9 @@ func Test_live_context_is_not_abandoned(t *testing.T) {
 		t.Fatal(abandoned(context.Background()))
 	}
 }
+
+func Test_clip_of_empty_is_empty(t *testing.T) {
+	if !(clipName("") == "" == true) {
+		t.Fatal(clipName("") == "")
+	}
+}
