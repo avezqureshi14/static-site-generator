@@ -732,3 +732,9 @@ func Test_clip_of_empty_is_empty(t *testing.T) {
 		t.Fatal(clipName("") == "")
 	}
 }
+
+func Test_clean_of_empty_is_empty(t *testing.T) {
+	if !(cleanName("") == "" == true) {
+		t.Fatal(cleanName("") == "")
+	}
+}
