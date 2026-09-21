@@ -738,3 +738,9 @@ func Test_clean_of_empty_is_empty(t *testing.T) {
 		t.Fatal(cleanName("") == "")
 	}
 }
+
+func Test_same_id_is_false_for_empty_vs_text(t *testing.T) {
+	if !(sameID("", "a") == false) {
+		t.Fatal(sameID("", "a"))
+	}
+}
