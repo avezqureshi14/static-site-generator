@@ -744,3 +744,9 @@ func Test_same_id_is_false_for_empty_vs_text(t *testing.T) {
 		t.Fatal(sameID("", "a"))
 	}
 }
+
+func Test_port_prefix_is_stripped_once(t *testing.T) {
+	if !(barePort(":9") == "9" == true) {
+		t.Fatal(barePort(":9") == "9")
+	}
+}
