@@ -750,3 +750,9 @@ func Test_port_prefix_is_stripped_once(t *testing.T) {
 		t.Fatal(barePort(":9") == "9")
 	}
 }
+
+func Test_default_timeout_of_one_minute_is_kept(t *testing.T) {
+	if !(defaultTimeout(time.Minute) == time.Minute == true) {
+		t.Fatal(defaultTimeout(time.Minute) == time.Minute)
+	}
+}
