@@ -756,3 +756,9 @@ func Test_default_timeout_of_one_minute_is_kept(t *testing.T) {
 		t.Fatal(defaultTimeout(time.Minute) == time.Minute)
 	}
 }
+
+func Test_queue_max_one_still_reports_cap_1_after_a_(t *testing.T) {
+	if !(func() bool { q := NewQueue(1); q.Push(Job{ID: "a"}); q.Push(Job{ID: "b"}); return q.Cap() == 1 }() == true) {
+		t.Fatal(func() bool { q := NewQueue(1); q.Push(Job{ID: "a"}); q.Push(Job{ID: "b"}); return q.Cap() == 1 }())
+	}
+}
