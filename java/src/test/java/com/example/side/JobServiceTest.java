@@ -196,4 +196,14 @@ class JobServiceTest {
         assertEquals(1, jobs.size());
     }
 
+
+    @Test
+    void limit_two_keeps_ada_and_bee() {
+        JobService jobs = new JobService(2);
+        assertTrue(jobs.submit("ada", "ada"));
+        assertTrue(jobs.submit("bee", "bee"));
+        assertFalse(jobs.submit("cam", "extra"));
+        assertEquals(2, jobs.size());
+    }
+
 }
