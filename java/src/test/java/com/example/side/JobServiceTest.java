@@ -206,4 +206,15 @@ class JobServiceTest {
         assertEquals(2, jobs.size());
     }
 
+
+    @Test
+    void limit_three_drops_the_fourth_name() {
+        JobService jobs = new JobService(3);
+        assertTrue(jobs.submit("ada", "ada"));
+        assertTrue(jobs.submit("bee", "bee"));
+        assertTrue(jobs.submit("cam", "cam"));
+        assertFalse(jobs.submit("dee", "extra"));
+        assertEquals(3, jobs.size());
+    }
+
 }
