@@ -217,4 +217,17 @@ class JobServiceTest {
         assertEquals(3, jobs.size());
     }
 
+
+    @Test
+    void a_wider_table_still_rejects_the_extra() {
+        JobService jobs = new JobService(5);
+        assertTrue(jobs.submit("a", "a"));
+        assertTrue(jobs.submit("b", "b"));
+        assertTrue(jobs.submit("c", "c"));
+        assertTrue(jobs.submit("d", "d"));
+        assertTrue(jobs.submit("e", "e"));
+        assertFalse(jobs.submit("f", "extra"));
+        assertEquals(5, jobs.size());
+    }
+
 }
